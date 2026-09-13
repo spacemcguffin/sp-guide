@@ -534,12 +534,12 @@ footer{
 .footer-logo>span:nth-child(8){transform:rotate(-.57deg) translateY(.45px)}
 .footer-logo>span:nth-child(9){transform:rotate(.38deg) translateY(-.35px)}
 .footer-logo>span:nth-child(10){transform:rotate(-.49deg) translateY(.3px)}
-.footer-logo>span:nth-child(11){transform:rotate(-.32deg) translateY(.7px)}
-.footer-logo>span:nth-child(12){transform:rotate(-.57deg) translateY(.3px)}
-.footer-logo>span:nth-child(13){transform:rotate(-.34deg) translateY(.5px)}
-.footer-logo>span:nth-child(14){transform:rotate(-.58deg) translateY(.2px)}
-.footer-logo>span:nth-child(15){transform:rotate(-.30deg) translateY(.5px)}
-.footer-logo>span:nth-child(16){transform:rotate(-.42deg) translateY(.4px)}
+.footer-logo>span:nth-child(11){transform:rotate(2.1deg) translateY(-1.2px)}
+.footer-logo>span:nth-child(12){transform:rotate(-1.7deg) translateY(.9px)}
+.footer-logo>span:nth-child(13){transform:rotate(1.35deg) translateY(-.6px)}
+.footer-logo>span:nth-child(14){transform:rotate(-2.25deg) translateY(1.1px)}
+.footer-logo>span:nth-child(15){transform:rotate(1.8deg) translateY(-1px)}
+.footer-logo>span:nth-child(16){transform:rotate(-1.3deg) translateY(.65px)}
 
 
 .footer-meta{
