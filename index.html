@@ -1,1 +1,472 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#10131d" name="theme-color"/>
+<title>South Park Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/southpark.css">
+</head>
+<body id="top">
+<header class="scroll-header" id="scrollHeader">
+<div class="header-inner">
+<a aria-label="South Park Guide" class="mini-guide-logo logo-back-to-top" href="/sp" id="miniLogoBackToTop" title="South Park Guide">
+<span>S</span><span>O</span><span>U</span><span>T</span><span>H</span>
+<span aria-hidden="true" class="logo-gap"></span>
+<span>P</span><span>A</span><span>R</span><span>K</span>
+</a>
+<nav>
+<a href="/">Home</a>
+<a href="/episodes">Episode Guide</a>
+<a href="/about">About</a>
+</nav>
+<div class="header-actions">
+<button aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu" class="menu" id="menuButton">☰</button>
+</div>
+</div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+<div class="mobile-nav-inner">
+<a href="/">Home</a>
+<a href="/episodes">Episode Guide</a>
+<a href="/about">About</a>
+</div>
+</div>
+<main>
+<section aria-label="South Park Guide" class="show-brand">
+<div class="show-brand-inner">
+<h1 aria-label="Home" class="guide-logo logo-back-to-top" id="mainLogoBackToTop" role="button" tabindex="0" title="Home">
+<span>S</span><span>O</span><span>U</span><span>T</span><span>H</span>
+<span aria-hidden="true" class="logo-gap"></span>
+<span>P</span><span>A</span><span>R</span><span>K</span>
+</h1>
+<div aria-label="Primary links" class="top-link-row">
+<a class="top-link" href="/">Home</a>
+<a class="top-link" href="/episodes">Episode Guide</a>
+<a class="top-link" href="/about">About</a>
+</div>
+</div>
+</section>
+<section class="hero" aria-label="Featured stories">
+<div class="hero-track" id="heroTrack">
+
+
+    <article class="hero-slide is-active">
+    <img alt="South Park" src="/news/img/southamerica.png"/>
+    <div class="hero-copy">
+      <div class="actions">
+        <a class="paper-cta" href="/news/south-park-becomes-south-america">Read More
+        <svg class="cta-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M4.25 2.25 8 6 4.25 9.75"></path></svg></a>
+      </div>
+    </div>
+  </article>
+
+
+  
+  <article class="hero-slide is-active">
+    <img alt="South Park" src="/news/img/placeholder.png"/>
+    <div class="hero-copy">
+      <div class="hero-date">May 19, 2026</div>
+      <h1>Season 29 Begins September 16th</h1>
+      <p class="hero-dek">New episodes are coming later this year.</p>
+      <div class="actions">
+        <a class="paper-cta" href="/news/season-29-begins-september">Read More
+        <svg class="cta-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M4.25 2.25 8 6 4.25 9.75"></path></svg></a>
+      </div>
+    </div>
+  </article>
+
+  
+
+
+
+
+
+  
+</div>
+
+<div class="hero-controls">
+  <div class="hero-dots" id="heroDots" aria-label="Featured story pagination"></div>
+  <div class="hero-arrows">
+    <button class="hero-arrow" id="heroPrev" type="button" aria-label="Previous featured story"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"/></svg></button>
+    <button class="hero-arrow" id="heroNext" type="button" aria-label="Next featured story"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></button>
+  </div>
+</div>
+</section>
+<section class="section" id="news">
+<div class="section-title-row">
+<h2>Latest News</h2>
+</div>
+<div class="news-grid">
+<a class="news-item" href="/news/south-park-becomes-south-america">
+  <img src="/sp/img/news/southamerica.png"/>
+  <div class="date">September 9, 2026</div>
+  <h3>South Park Becomes SOUTH AMERICA!</h3></a>
+  
+<a class="news-item" href="/news/season-29-begins-september">
+  <img src="/sp/img/titlecard.png"/>
+  <div class="date">May 19, 2026</div>
+  <h3>Season 29 Begins September 16th</h3></a>
+  
+</div>
+<div class="news-pagination" id="newsPagination" aria-label="News pagination"></div>
+</section>
+
+<section id="latest-season" aria-labelledby="latestSeasonTitle">
+  <div class="season-title-row">
+    <h2 id="latestSeasonTitle">Latest Season</h2>
+    <a class="season-link" href="/sp/guide">Episode Guide</a>
+  </div>
+  <div class="season-mini-header"><span>Season 29 <span class="season-meta-dot" aria-hidden="true">•</span> 6 episodes</span></div>
+  <div class="season-layout">
+    <div class="season-preview">
+      <a id="seasonPreviewLink" href="/episodes?episode=s29e1">
+        <img id="seasonPreview" src="/news/img/southamerica.png">
+      </a>
+    </div>
+    <div class="season-list">
+      
+      <a class="season-row is-active" data-image="/news/img/southamerica.png" href="/episodes?episode=s29e1">
+        <img class="season-row-thumb" src="/news/img/southamerica.png">
+        <div class="season-row-copy"><span class="season-ep">Episode 1</span><h3>TBA</h3></div>
+      </a>
+      
+      <a class="season-row" data-image="/news/img/southamerica.png" href="/episodes?seasons=29">
+        <img class="season-row-thumb" src="/news/img/southamerica.png">
+        <div class="season-row-copy"><span class="season-ep">Episode 2</span><h3>TBA</h3></div>
+      </a>
+           
+      <a class="season-row" data-image="/news/img/southamerica.png" href="/episodes?seasons=29">
+        <img class="season-row-thumb" src="/news/img/southamerica.png">
+        <div class="season-row-copy"><span class="season-ep">Episode 3</span><h3>TBA</h3></div>
+      </a>
+      
+   
+    </div>
+  </div>
+</section>
+
+</main>
+<button id="back-to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 12.5 10 7l5.5 5.5"/></svg></button>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo" aria-label="South Park">
+        <span>S</span><span>O</span><span>U</span><span>T</span><span>H</span>
+        <span class="footer-gap" aria-hidden="true"></span>
+        <span>P</span><span>A</span><span>R</span><span>K</span>
+      </div>
+      <div class="footer-meta">Guide · Created by Lewis Christian, 2026</div>
+    </div>
+    <div class="footer-links">
+<a href="/">Home</a>
+<a href="/episodes">Episode Guide</a>
+<a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+<script>
+
+const heroTitles = [...document.querySelectorAll('.hero-slide h1')];
+
+heroTitles.forEach(title => {
+  const length = title.textContent.trim().length;
+
+  title.classList.remove('hero-title-long', 'hero-title-very-long');
+
+  if (length >= 34) {
+    title.classList.add('hero-title-very-long');
+  } else if (length >= 24) {
+    title.classList.add('hero-title-long');
+  }
+});
+
+const heroSlides = [...document.querySelectorAll('.hero-slide')];
+const heroDots = document.getElementById('heroDots');
+const heroPrev = document.getElementById('heroPrev');
+const heroNext = document.getElementById('heroNext');
+const heroControls = document.querySelector('.hero-controls');
+const hasMultipleHeroSlides = heroSlides.length > 1;
+let heroIndex = 0;
+let heroTimer;
+let heroPaused = false;
+
+if (!hasMultipleHeroSlides && heroControls) {
+  heroControls.style.display = 'none';
+  heroControls.setAttribute('aria-hidden', 'true');
+}
+
+function showHeroSlide(index, restart = true) {
+  if (!heroSlides.length) return;
+
+  heroIndex = (index + heroSlides.length) % heroSlides.length;
+
+  heroSlides.forEach((slide, i) => {
+    const active = i === heroIndex;
+    slide.classList.toggle('is-active', active);
+    slide.setAttribute('aria-hidden', String(!active));
+  });
+
+  if (heroDots) {
+    [...heroDots.children].forEach((dot, i) => {
+      const active = i === heroIndex;
+      dot.classList.toggle('is-active', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  }
+
+  if (restart) startHeroAutoplay();
+}
+
+function startHeroAutoplay() {
+  window.clearInterval(heroTimer);
+  if (!hasMultipleHeroSlides || heroPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  heroTimer = window.setInterval(() => showHeroSlide(heroIndex + 1, false), 8000);
+}
+
+function pauseHeroAutoplay() {
+  heroPaused = true;
+  window.clearInterval(heroTimer);
+}
+
+function resumeHeroAutoplay() {
+  heroPaused = false;
+  startHeroAutoplay();
+}
+
+if (heroSlides.length) {
+  if (hasMultipleHeroSlides && heroDots) {
+    heroSlides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'hero-dot';
+      dot.setAttribute('aria-label', `Featured story ${i + 1}`);
+      dot.addEventListener('click', () => showHeroSlide(i));
+      heroDots.appendChild(dot);
+    });
+
+    heroPrev?.addEventListener('click', () => showHeroSlide(heroIndex - 1));
+    heroNext?.addEventListener('click', () => showHeroSlide(heroIndex + 1));
+
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      hero.addEventListener('mouseenter', pauseHeroAutoplay);
+      hero.addEventListener('mouseleave', resumeHeroAutoplay);
+      hero.addEventListener('focusin', pauseHeroAutoplay);
+      hero.addEventListener('focusout', event => {
+        if (!hero.contains(event.relatedTarget)) resumeHeroAutoplay();
+      });
+
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      hero.addEventListener('touchstart', event => {
+        const touch = event.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+        pauseHeroAutoplay();
+      }, {passive:true});
+
+      hero.addEventListener('touchend', event => {
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+
+        if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+          showHeroSlide(deltaX < 0 ? heroIndex + 1 : heroIndex - 1, false);
+        }
+
+        resumeHeroAutoplay();
+      }, {passive:true});
+    }
+  }
+
+  showHeroSlide(0, false);
+  startHeroAutoplay();
+}
+
+const newsGrid = document.querySelector('.news-grid');
+const newsPagination = document.getElementById('newsPagination');
+
+if (newsGrid && newsPagination) {
+  const cards = [...newsGrid.querySelectorAll('.news-item')];
+  const perPage = 6;
+  const pageCount = Math.ceil(cards.length / perPage);
+
+  function showNewsPage(page) {
+    cards.forEach((card, index) => {
+      card.hidden = Math.floor(index / perPage) !== page;
+    });
+
+    [...newsPagination.children].forEach((button, index) => {
+      const active = index === page;
+      button.classList.toggle('is-active', active);
+      if (active) button.setAttribute('aria-current', 'page');
+      else button.removeAttribute('aria-current');
+    });
+  }
+
+  for (let page = 0; page < pageCount; page++) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'news-page';
+    button.textContent = String(page + 1);
+    button.setAttribute('aria-label', `News page ${page + 1}`);
+    button.addEventListener('click', () => {
+      showNewsPage(page);
+      const newsSection = document.getElementById('news');
+      if (newsSection) {
+        newsSection.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'start'
+        });
+      }
+    });
+    newsPagination.appendChild(button);
+  }
+
+  if (pageCount <= 1) newsPagination.hidden = true;
+  showNewsPage(0);
+}
+
+const seasonPreview = document.getElementById('seasonPreview');
+const seasonPreviewLink = document.getElementById('seasonPreviewLink');
+const seasonRows = [...document.querySelectorAll('.season-row')];
+
+function setSeasonPreview(row) {
+  if (!row || !seasonPreview) return;
+
+  seasonRows.forEach(item => item.classList.toggle('is-active', item === row));
+
+  if (seasonPreviewLink) {
+    seasonPreviewLink.href = row.getAttribute('href') || '/sp/movie';
+  }
+
+  const src = row.dataset.image;
+  if (!src || seasonPreview.src === src) return;
+
+  seasonPreview.style.opacity = '0';
+
+  const image = new Image();
+  image.onload = () => {
+    seasonPreview.src = src;
+    seasonPreview.alt = `${row.querySelector('h3')?.textContent || 'South Park'} episode still`;
+    seasonPreview.style.opacity = '1';
+  };
+  image.src = src;
+}
+
+seasonRows.forEach(row => {
+  row.addEventListener('mouseenter', () => setSeasonPreview(row));
+  row.addEventListener('focus', () => setSeasonPreview(row));
+  row.addEventListener('touchstart', () => setSeasonPreview(row), { passive:true });
+});
+
+const menuButton = document.getElementById('menuButton');
+const mobileNav = document.getElementById('mobileNav');
+const scrollHeader = document.getElementById('scrollHeader');
+
+function closeMobileNav() {
+  if (!menuButton || !mobileNav) return;
+
+  mobileNav.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', 'Open menu');
+  menuButton.textContent = '☰';
+}
+
+if (menuButton && mobileNav) {
+  menuButton.addEventListener('click', () => {
+    const open = !mobileNav.classList.contains('open');
+
+    mobileNav.classList.toggle('open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menuButton.textContent = open ? '×' : '☰';
+  });
+
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mobileNav.classList.contains('open')) {
+      closeMobileNav();
+      menuButton.focus();
+    }
+  });
+}
+
+function updateScrollHeader() {
+  if (!scrollHeader) return;
+
+  const threshold = window.innerWidth <= 760 ? 6 : 120;
+  const visible = window.scrollY > threshold;
+
+  scrollHeader.classList.toggle('is-visible', visible);
+
+  if (!visible) closeMobileNav();
+}
+
+updateScrollHeader();
+window.addEventListener('scroll', updateScrollHeader, {passive:true});
+window.addEventListener('resize', () => {
+  updateScrollHeader();
+  if (window.innerWidth > 760) closeMobileNav();
+});
+
+
+const backToTop = document.getElementById('back-to-top');
+
+if (backToTop) {
+  const updateBackToTop = () => {
+    backToTop.classList.toggle('visible', window.scrollY > 300);
+  };
+
+  updateBackToTop();
+  window.addEventListener('scroll', updateBackToTop, {passive:true});
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top:0,
+      behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  });
+}
+
+const backToTopLogos = [
+  document.getElementById('miniLogoBackToTop'),
+  document.getElementById('mainLogoBackToTop')
+].filter(Boolean);
+
+function jumpLogoAndBackToTop(logo, event) {
+  event?.preventDefault();
+
+  logo.classList.remove('logo-jump');
+  void logo.offsetWidth;
+  logo.classList.add('logo-jump');
+
+  window.setTimeout(() => logo.classList.remove('logo-jump'), 420);
+
+  window.scrollTo({
+    top:0,
+    behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  });
+}
+
+backToTopLogos.forEach(logo => {
+  logo.addEventListener('click', event => jumpLogoAndBackToTop(logo, event));
+
+  if (logo.getAttribute('role') === 'button') {
+    logo.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        jumpLogoAndBackToTop(logo, event);
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
