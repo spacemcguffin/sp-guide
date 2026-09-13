@@ -556,11 +556,11 @@ footer{
 
 
 .footer-meta{
-  color:rgba(255,255,255,.48);
-  font-size:.6rem;
-  font-weight:650;
-  letter-spacing:.09em;
-  text-transform:uppercase;
+    color:rgba(255,255,255,.48);
+    font-size: .7rem;
+    font-weight: 550;
+    letter-spacing: .05em;
+    text-transform: uppercase;
 }
 
 .footer-links{
@@ -570,10 +570,10 @@ footer{
 }
 
 .footer-links a{
-  font-size:.64rem;
-  font-weight:760;
-  letter-spacing:.06em;
-  text-transform:uppercase;
+    font-size: .7rem;
+    font-weight: 550;
+    letter-spacing: .05em;
+    text-transform: uppercase;
 }
 
 .footer-links a:hover{color:#fff}
