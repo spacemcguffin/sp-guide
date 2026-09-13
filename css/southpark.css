@@ -181,6 +181,19 @@ img{display:block;max-width:100%}
 .guide-logo>span:nth-child(9){transform:rotate(.38deg) translateY(-.35px)}
 .mini-guide-logo>span:nth-child(10),
 .guide-logo>span:nth-child(10){transform:rotate(-.49deg) translateY(.3px)}
+.mini-guide-logo>span:nth-child(11),
+.guide-logo>span:nth-child(11){transform:rotate(2.1deg) translateY(-1.2px)}
+.mini-guide-logo>span:nth-child(12),
+.guide-logo>span:nth-child(12){transform:rotate(-1.7deg) translateY(.3px)}
+.mini-guide-logo>span:nth-child(13),
+.guide-logo>span:nth-child(13){transform: rotate(1.3deg) translateY(-0.3px)}
+.mini-guide-logo>span:nth-child(14),
+.guide-logo>span:nth-child(14){transform:rotate(-2.25deg) translateY(1.1px}
+.mini-guide-logo>span:nth-child(15),
+.guide-logo>span:nth-child(15){transform: rotate(1.3deg) translateY(0px)}
+.mini-guide-logo>span:nth-child(16),
+.guide-logo>span:nth-child(16){transform:rotate(-1.3deg) translateY(.65px)}
+
 
 .logo-back-to-top{cursor:pointer}
 
