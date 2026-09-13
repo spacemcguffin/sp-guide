@@ -147,7 +147,7 @@ img{display:block;max-width:100%}
 }
 
 .guide-logo{
-  font-size:clamp(2rem,3.8vw,3.55rem);
+  font-size:clamp(2rem,3vw,3.55rem);
 }
 
 .mini-guide-logo>span:not(.logo-gap),
