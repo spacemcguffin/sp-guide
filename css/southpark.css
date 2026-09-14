@@ -346,15 +346,15 @@ img{display:block;max-width:100%}
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height:46px;
+  min-height:42px;
   padding:0 20px;
   gap:10px;
   border:1px solid rgba(44,47,50,.16);
   background:linear-gradient(145deg,#f3d55b,#dfbd3f);
   color:#292612;
-  font-size:.68rem;
-  font-weight:820;
-  letter-spacing:.08em;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.05em;
   text-transform:uppercase;
   box-shadow:0 5px 12px rgba(0,0,0,.12);
   clip-path:polygon(
