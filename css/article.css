@@ -100,7 +100,7 @@
   background-image:linear-gradient(currentColor,currentColor);
   background-repeat:no-repeat;
   background-position:0 100%;
-  background-size:0 1px;
+  background-size:0 2px;
   transition:
     color .25s ease,
     background-size .35s cubic-bezier(.2,.8,.2,1);
@@ -109,7 +109,7 @@
 .article-body a:not(.article-back):hover,
 .article-body a:not(.article-back):focus-visible{
   color:#000;
-  background-size:100% 1px;
+  background-size:100% 2px;
 }
 
 .article-body blockquote{
