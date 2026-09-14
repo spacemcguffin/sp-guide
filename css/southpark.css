@@ -264,7 +264,7 @@ img{display:block;max-width:100%}
 /* Hero */
 .hero,
 .hero-copy{
-  min-height:555px;
+  min-height:560px;
 }
 
 .hero{
@@ -1039,12 +1039,12 @@ footer{
 
 /* Hero slider */
 .hero{
-  min-height:555px;
+  min-height:560px;
 }
 .hero-track{
   position:relative;
   width:100%;
-  min-height:555px;
+  min-height:560px;
 }
 .hero-slide{
   position:absolute;
