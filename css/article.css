@@ -258,4 +258,65 @@
     font-size:.98rem;
     line-height:1.6;
   }
+
+
+
+
+
+.marker{
+  position:relative;
+  z-index:0;
+  display:inline;
+  padding:0 .04em;
+}
+
+
+  .marker::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-.16em;
+  right:-.18em;
+  top:52%;
+  height:.86em;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(119,181,231,.58) 0%,
+      rgba(130,191,238,.72) 8%,
+      rgba(116,180,230,.66) 48%,
+      rgba(133,194,239,.72) 86%,
+      rgba(111,174,225,.58) 100%
+    );
+
+  transform:translateY(-50%) rotate(-.4deg) skewX(-1deg);
+
+  border-radius:
+    42% 18% 31% 24% /
+    30% 42% 36% 48%;
+
+  clip-path:polygon(
+    0% 20%, 3% 11%, 8% 14%, 14% 8%,
+    21% 12%, 29% 7%, 37% 11%, 45% 6%,
+    54% 10%, 63% 5%, 71% 11%, 79% 7%,
+    87% 12%, 94% 8%, 99% 15%, 100% 72%,
+    97% 86%, 90% 82%, 82% 89%, 74% 84%,
+    66% 91%, 57% 86%, 48% 92%, 39% 87%,
+    30% 93%, 21% 88%, 13% 94%, 6% 87%,
+    1% 91%
+  );
+
+  filter:blur(.15px);
+}
+
+  
+
+
+
+
+
+
+
+  
 }
