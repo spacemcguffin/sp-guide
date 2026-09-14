@@ -94,10 +94,17 @@
 }
 
 .article-body a{
-  color:inherit;
-  text-decoration-thickness:2px;
-  text-underline-offset:3px;
-  text-decoration-line:underline;
+    color: #2563a8;
+    font-weight: 500;
+}
+
+.article-body a:hover,
+.article-body a:focus-visible{
+  color:#000000;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-line: underline;
+  text-decoration-color: #172233;
 }
 
 .article-body blockquote{
