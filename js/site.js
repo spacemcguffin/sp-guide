@@ -19,6 +19,7 @@ function initSharedSite() {
 
   function closeMobileNav() {
     if (!menuButton || !mobileNav) return;
+
     mobileNav.classList.remove('open');
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-label', 'Open menu');
@@ -28,6 +29,7 @@ function initSharedSite() {
   if (menuButton && mobileNav) {
     menuButton.addEventListener('click', () => {
       const open = !mobileNav.classList.contains('open');
+
       mobileNav.classList.toggle('open', open);
       menuButton.setAttribute('aria-expanded', String(open));
       menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
@@ -50,8 +52,12 @@ function initSharedSite() {
     if (scrollHeader) {
       const threshold = window.innerWidth <= 760 ? 6 : 120;
       const visible = window.scrollY > threshold;
+
       scrollHeader.classList.toggle('is-visible', visible);
-      if (!visible) closeMobileNav();
+
+      if (!visible) {
+        closeMobileNav();
+      }
     }
 
     if (backToTop) {
@@ -63,7 +69,9 @@ function initSharedSite() {
     backToTop.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 'auto'
+          : 'smooth'
       });
     });
   }
@@ -75,9 +83,12 @@ function initSharedSite() {
 
   homeLogos.forEach(logo => {
     logo.addEventListener('click', event => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
 
       event.preventDefault();
+
       const destination = logo.href;
 
       logo.classList.remove('logo-jump');
@@ -89,14 +100,19 @@ function initSharedSite() {
       }, 230);
     });
   });
-    }
-  });
 
   updateScrollUI();
-  window.addEventListener('scroll', updateScrollUI, { passive: true });
+
+  window.addEventListener('scroll', updateScrollUI, {
+    passive: true
+  });
+
   window.addEventListener('resize', () => {
     updateScrollUI();
-    if (window.innerWidth > 760) closeMobileNav();
+
+    if (window.innerWidth > 760) {
+      closeMobileNav();
+    }
   });
 }
 
@@ -107,7 +123,10 @@ async function initSiteShell() {
   ]);
 
   initSharedSite();
-  document.dispatchEvent(new CustomEvent('site-shell-ready'));
+
+  document.dispatchEvent(
+    new CustomEvent('site-shell-ready')
+  );
 }
 
 initSiteShell();
