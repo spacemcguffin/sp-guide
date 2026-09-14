@@ -4,7 +4,11 @@ async function loadInclude(selector, url) {
 
   try {
     const response = await fetch(url);
-    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+    if (!response.ok) {
+      throw new Error(`${response.status} ${response.statusText}`);
+    }
+
     target.innerHTML = await response.text();
   } catch (error) {
     console.error(`Could not load ${url}:`, error);
@@ -32,7 +36,10 @@ function initSharedSite() {
 
       mobileNav.classList.toggle('open', open);
       menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menuButton.setAttribute(
+        'aria-label',
+        open ? 'Close menu' : 'Open menu'
+      );
       menuButton.textContent = open ? '×' : '☰';
     });
 
@@ -41,7 +48,10 @@ function initSharedSite() {
     });
 
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && mobileNav.classList.contains('open')) {
+      if (
+        event.key === 'Escape' &&
+        mobileNav.classList.contains('open')
+      ) {
         closeMobileNav();
         menuButton.focus();
       }
@@ -61,17 +71,22 @@ function initSharedSite() {
     }
 
     if (backToTop) {
-      backToTop.classList.toggle('visible', window.scrollY > 300);
+      backToTop.classList.toggle(
+        'visible',
+        window.scrollY > 300
+      );
     }
   }
 
   if (backToTop) {
     backToTop.addEventListener('click', () => {
+      const reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches;
+
       window.scrollTo({
         top: 0,
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-          ? 'auto'
-          : 'smooth'
+        behavior: reducedMotion ? 'auto' : 'smooth'
       });
     });
   }
@@ -81,31 +96,59 @@ function initSharedSite() {
     document.getElementById('mainLogoHome')
   ].filter(Boolean);
 
+  const isHomepage =
+    window.location.pathname === '/' ||
+    window.location.pathname === '/index.html';
+
   homeLogos.forEach(logo => {
     logo.addEventListener('click', event => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      event.preventDefault();
+
+      const reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches;
+
+      if (isHomepage) {
+        if (!reducedMotion) {
+          logo.classList.remove('logo-jump');
+          void logo.offsetWidth;
+          logo.classList.add('logo-jump');
+
+          window.setTimeout(() => {
+            logo.classList.remove('logo-jump');
+          }, 420);
+        }
+
+        window.scrollTo({
+          top: 0,
+          behavior: reducedMotion ? 'auto' : 'smooth'
+        });
+
         return;
       }
 
-      event.preventDefault();
-
-      const destination = logo.href;
+      if (reducedMotion) {
+        window.location.href = '/';
+        return;
+      }
 
       logo.classList.remove('logo-jump');
       void logo.offsetWidth;
       logo.classList.add('logo-jump');
 
       window.setTimeout(() => {
-        window.location.href = destination;
+        window.location.href = '/';
       }, 230);
     });
   });
 
   updateScrollUI();
 
-  window.addEventListener('scroll', updateScrollUI, {
-    passive: true
-  });
+  window.addEventListener(
+    'scroll',
+    updateScrollUI,
+    { passive: true }
+  );
 
   window.addEventListener('resize', () => {
     updateScrollUI();
