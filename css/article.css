@@ -229,78 +229,29 @@
 
 
 .marker{
-  position:relative;
-  z-index:0;
   display:inline;
-}
 
-.marker::before{
-  content:"";
-  position:absolute;
-  z-index:-1;
+  padding:.10em .28em .14em;
+  margin:0 -.02em;
 
-  /* Extend beyond the text */
-  left:-.28em;
-  right:-.28em;
-  top:50%;
-  height:1.28em;
-
-  /* Faded blue highlighter */
   background:
     linear-gradient(
-      90deg,
-      rgba(116,181,232,.24) 0%,
-      rgba(126,190,238,.31) 9%,
-      rgba(118,184,234,.27) 32%,
-      rgba(132,194,239,.30) 55%,
-      rgba(119,183,233,.27) 78%,
-      rgba(110,176,228,.22) 100%
+      177deg,
+      transparent 0%,
+      transparent 5%,
+      rgba(116,181,232,.20) 7%,
+      rgba(126,190,238,.29) 14%,
+      rgba(118,184,234,.27) 48%,
+      rgba(132,194,239,.29) 76%,
+      rgba(110,176,228,.20) 94%,
+      transparent 97%
     );
 
-  transform:
-    translateY(-50%)
-    rotate(-.25deg);
+  -webkit-box-decoration-break:clone;
+  box-decoration-break:clone;
 
-  /* Imperfect marker edges */
-  clip-path:polygon(
-    0% 20%,
-    2% 12%,
-    7% 9%,
-    13% 13%,
-    20% 7%,
-    28% 11%,
-    36% 6%,
-    44% 10%,
-    52% 5%,
-    60% 9%,
-    68% 6%,
-    76% 11%,
-    84% 7%,
-    91% 12%,
-    97% 9%,
-    100% 20%,
-
-    99% 80%,
-    96% 88%,
-    89% 91%,
-    81% 87%,
-    73% 93%,
-    65% 89%,
-    57% 94%,
-    49% 90%,
-    41% 95%,
-    33% 89%,
-    25% 94%,
-    17% 90%,
-    10% 95%,
-    4% 89%,
-    0% 82%
-  );
-
-  border-radius:.25em;
-  filter:blur(.25px);
+  border-radius:.12em .22em .16em .1em;
 }
-
 
 
 
