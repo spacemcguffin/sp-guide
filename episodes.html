@@ -3628,33 +3628,6 @@ a {
   z-index: 1;
 }
 
-/* Rough, cut-paper accent under SOUTH PARK. */
-.guide-logo {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 14px;
-}
-
-.guide-logo::after {
-  content: "";
-  position: absolute;
-  left: 3px;
-  bottom: 1px;
-  width: min(215px, 64%);
-  height: 7px;
-  background:
-    linear-gradient(90deg,
-      #f3c64a 0 42%,
-      transparent 42% 45%,
-      #d85b51 45% 72%,
-      transparent 72% 75%,
-      #62a8df 75% 100%);
-  clip-path: polygon(0 28%, 14% 8%, 30% 22%, 47% 0, 61% 18%, 78% 5%, 100% 23%, 98% 75%, 78% 88%, 58% 70%, 41% 94%, 20% 74%, 2% 91%);
-  transform: rotate(-1deg);
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,.18));
-  opacity: .92;
-}
-
 /* Smaller hand-made accent beneath season headings. */
 .season-name {
   position: relative;
@@ -3757,14 +3730,6 @@ a {
     opacity: .82;
   }
 
-  .guide-logo {
-    padding-bottom: 11px;
-  }
-
-  .guide-logo::after {
-    height: 5px;
-    width: min(170px, 62%);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3845,29 +3810,6 @@ body {
       rgba(3,9,22,.56) 78%,
       rgba(3,9,22,.48) 100%
     );
-}
-
-/* Main title underline */
-.guide-logo {
-  padding-bottom: 18px !important;
-}
-
-.guide-logo::after {
-  left: 5px !important;
-  bottom: 2px !important;
-  width: 238px !important;
-  height: 9px !important;
-  background:
-    linear-gradient(
-      90deg,
-      #f4c522 0 31%,
-      transparent 31% 35%,
-      #d94a48 35% 64%,
-      transparent 64% 68%,
-      #4fa3d9 68% 100%
-    ) !important;
-  transform: rotate(-.7deg) !important;
-  opacity: 1 !important;
 }
 
 /* Hide duplicate results display */
@@ -4525,12 +4467,6 @@ body.modal-open .paper-back-to-top {
    scrap-paper subtitle, and stronger back-to-top arrow.
 ========================================================= */
 
-/* Longer cut-paper underline beneath SOUTH PARK. */
-.guide-logo::after {
-  width: min(315px, 78%) !important;
-  height: 9px !important;
-}
-
 /* Longer season heading underline. */
 .season-name::after {
   width: 110px !important;
@@ -4703,10 +4639,6 @@ body.modal-open .current-season-scrap {
 }
 
 @media (max-width: 760px) {
-  .guide-logo::after {
-    width: min(260px, 82%) !important;
-  }
-
   .guide-subtitle {
     padding: 6px 10px 5px !important;
     font-size: .64rem !important;
@@ -6640,33 +6572,6 @@ body.modal-open #activeFilters {
    LOGO ACCENT + SIDE TOOLTIP REFINEMENT
 ========================================================= */
 
-/* Four separate scuffed marker strokes under SOUTH PARK. */
-.guide-logo {
-  padding-bottom: 25px !important;
-}
-
-.guide-logo::after {
-  content: "" !important;
-  position: absolute !important;
-  left: 5px !important;
-  bottom: 1px !important;
-  width: min(315px, 78%) !important;
-  height: 18px !important;
-  background:
-    linear-gradient(91deg, transparent 0 1%, #5161AC 2% 97%, transparent 99%) 0 0 / 96% 3px no-repeat,
-    linear-gradient(89deg, transparent 0 2%, #4F9A58 3% 98%, transparent 100%) 5px 5px / 92% 3px no-repeat,
-    linear-gradient(91.5deg, transparent 0 1%, #59C0D5 2% 96%, transparent 99%) 1px 10px / 98% 3px no-repeat,
-    linear-gradient(88.5deg, transparent 0 2%, #E97828 3% 98%, transparent 100%) 8px 15px / 90% 3px no-repeat !important;
-  clip-path: polygon(
-    0 8%, 8% 1%, 17% 10%, 27% 2%, 38% 9%, 49% 0, 60% 8%, 72% 2%, 84% 10%, 100% 3%,
-    99% 91%, 88% 98%, 76% 90%, 64% 99%, 52% 91%, 40% 100%, 28% 90%, 15% 98%, 1% 91%
-  ) !important;
-  transform: rotate(-.55deg) !important;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,.16)) !important;
-  opacity: .98 !important;
-  pointer-events: none;
-}
-
 /* Logo tooltip sits to the right, with its pointer aimed back at the logo. */
 .season-tooltip.tooltip-right {
   transform: translate(0, -50%) translateX(8px);
@@ -6683,28 +6588,14 @@ body.modal-open #activeFilters {
   transform: translateY(-50%) rotate(135deg);
 }
 
-@media (max-width: 760px) {
-  .guide-logo {
-    padding-bottom: 22px !important;
-  }
-
-  .guide-logo::after {
-    width: min(260px, 82%) !important;
-    height: 16px !important;
-    background:
-      linear-gradient(91deg, transparent 0 1%, #5161AC 2% 97%, transparent 99%) 0 0 / 96% 2.5px no-repeat,
-      linear-gradient(89deg, transparent 0 2%, #4F9A58 3% 98%, transparent 100%) 4px 4.5px / 92% 2.5px no-repeat,
-      linear-gradient(91.5deg, transparent 0 1%, #59C0D5 2% 96%, transparent 99%) 1px 9px / 98% 2.5px no-repeat,
-      linear-gradient(88.5deg, transparent 0 2%, #E97828 3% 98%, transparent 100%) 7px 13.5px / 90% 2.5px no-repeat !important;
-  }
-}
-
 /* =========================================================
    LOGO ACCENT — COMPACT FOUR-COLOUR SCRAP BLOCKS
 ========================================================= */
 /* Restore the original short, single-strip feel: four colours sit side-by-side
    as small rough blocks rather than separate horizontal strokes. */
 .guide-logo {
+  position: relative;
+  display: inline-block;
   padding-bottom: 14px !important;
 }
 
@@ -6719,11 +6610,11 @@ body.modal-open #activeFilters {
     90deg,
     #5161AC 0 24%,
     transparent 24% 25.5%,
-    #009B67 25.5% 49%,
+    #4F9A58 25.5% 49%,
     transparent 49% 50.5%,
     #59C0D5 50.5% 74%,
     transparent 74% 75.5%,
-    #F47321 75.5% 100%
+    #E97828 75.5% 100%
   ) !important;
   clip-path: polygon(
     0 28%, 7% 13%, 14% 24%, 21% 8%, 29% 20%, 37% 3%,
