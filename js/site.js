@@ -234,7 +234,14 @@ function initArticleGalleries() {
       </button>
 
       <div class="article-lightbox-stage">
-        <img class="article-lightbox-image" src="" alt="">
+        <img
+          class="article-lightbox-image"
+          src=""
+          alt=""
+        >
+
+        <div class="article-lightbox-caption"></div>
+
         <div
           class="article-lightbox-count"
           aria-live="polite"
@@ -257,6 +264,9 @@ function initArticleGalleries() {
     const lightboxImage =
       lightbox.querySelector('.article-lightbox-image');
 
+    const caption =
+      lightbox.querySelector('.article-lightbox-caption');
+
     const count =
       lightbox.querySelector('.article-lightbox-count');
 
@@ -278,8 +288,15 @@ function initArticleGalleries() {
 
       const source = images[currentIndex];
 
-      lightboxImage.src = source.currentSrc || source.src;
-      lightboxImage.alt = source.alt || '';
+      lightboxImage.src =
+        source.currentSrc || source.src;
+
+      lightboxImage.alt =
+        source.alt || '';
+
+      /* Display data-caption text beneath image */
+      caption.textContent =
+        source.dataset.caption || '';
 
       count.textContent =
         `${currentIndex + 1} / ${images.length}`;
