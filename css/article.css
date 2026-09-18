@@ -308,6 +308,10 @@
   clip-path:polygon(0 0,100% 1%,99% 100%,1% 99%);
 }
 
+.article-gallery img{
+  cursor:pointer;
+}
+
 /* Gallery lightbox */
 body.gallery-open{
   overflow:hidden;
