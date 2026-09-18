@@ -30,5 +30,13 @@
     "image": "https://southpark.guide/news/img/placeholder.png",
     "category": "News",
     "url": "/news/season-29-begins-september"
+  },
+  {
+    "title": "Season 27 Teaser Trailer",
+    "description": "South Park Season 27 teases upcoming episodes with new trailer",
+    "date": "2025-04-02",
+    "image": "https://southpark.guide/news/img/season27/S27teaser3.png",
+    "category": "News",
+    "url": "/news/season-27-teaser"
   }
 ]
