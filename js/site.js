@@ -173,3 +173,33 @@ async function initSiteShell() {
 }
 
 initSiteShell();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* GoatCounter analytics */
+(function () {
+  if (document.querySelector('script[data-goatcounter]')) return;
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://gc.zgo.at/count.js';
+  script.dataset.goatcounter =
+    'https://spacemcguffin.goatcounter.com/count';
+
+  document.head.appendChild(script);
+})();
