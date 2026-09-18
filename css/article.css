@@ -222,18 +222,10 @@
   transform:scaleX(1);
 }
 
-
-
-
-
-
-
 .marker{
   display:inline;
-
   padding:.10em .28em .14em;
   margin:0 -.02em;
-
   background:
     linear-gradient(
       177deg,
@@ -246,19 +238,10 @@
       rgba(110,176,228,.20) 94%,
       transparent 97%
     );
-
   -webkit-box-decoration-break:clone;
   box-decoration-break:clone;
-
   border-radius:.12em .22em .16em .1em;
 }
-
-
-
-
-
-
-
 
 /* Article gallery */
 .article-gallery{
@@ -266,50 +249,27 @@
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:9px;
   margin:2.3em 0 2.6em;
-}
-
-.article-gallery-item{
-  display:block;
-  width:100%;
-  padding:0;
-  border:0;
-  background:none;
   overflow:hidden;
-  cursor:pointer;
 }
 
-.article-gallery-item img{
+.article-gallery img{
   display:block;
   width:100%;
   aspect-ratio:4/3;
   object-fit:cover;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1);
+  cursor:pointer;
+  transition:
+    transform .3s cubic-bezier(.2,.8,.2,1),
+    opacity .25s ease;
 }
 
-.article-gallery-item:hover img,
-.article-gallery-item:focus-visible img{
+.article-gallery img:hover{
   transform:scale(1.035);
 }
 
-.article-gallery-item:focus-visible{
+.article-gallery img:focus-visible{
   outline:2px solid #2563a8;
-  outline-offset:3px;
-}
-
-.article-gallery-item:nth-child(1){
-  clip-path:polygon(0 1%,100% 0,99% 100%,1% 99%);
-}
-
-.article-gallery-item:nth-child(2){
-  clip-path:polygon(1% 0,99% 1%,100% 99%,0 100%);
-}
-
-.article-gallery-item:nth-child(3){
-  clip-path:polygon(0 0,100% 1%,99% 100%,1% 99%);
-}
-
-.article-gallery img{
-  cursor:pointer;
+  outline-offset:-2px;
 }
 
 /* Gallery lightbox */
@@ -423,7 +383,6 @@ body.gallery-open{
   opacity:.65;
 }
 
-
 @media(max-width:760px){
   .article-hero-inner{
     padding:44px 0 28px;
@@ -461,19 +420,14 @@ body.gallery-open{
     line-height:1.6;
   }
 
-
-
   .article-gallery{
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:7px;
     margin:2em 0 2.2em;
   }
 
-  .article-gallery-item:first-child{
+  .article-gallery img:first-child{
     grid-column:1 / -1;
-  }
-
-  .article-gallery-item:first-child img{
     aspect-ratio:16/9;
   }
 
@@ -505,5 +459,4 @@ body.gallery-open{
   .article-lightbox-next{
     right:calc(50% - 62px);
   }
-
 }
