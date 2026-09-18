@@ -1,0 +1,41 @@
+name: Generate News Index
+
+on:
+  push:
+    paths:
+      - "news/**"
+      - "scripts/generate-news.js"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate news.json
+        run: node scripts/generate-news.js
+
+      - name: Commit updated news index
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add news/news.json
+
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+
+          git commit -m "Update news index"
+          git push
