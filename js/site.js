@@ -181,6 +181,242 @@ initSiteShell();
 
 
 
+/* Article gallery + lightbox */
+function initArticleGalleries() {
+  const galleries = document.querySelectorAll('.article-gallery');
+
+  if (!galleries.length) return;
+
+  galleries.forEach(gallery => {
+    const images = [...gallery.querySelectorAll('img')];
+
+    if (!images.length) return;
+
+    /* Turn gallery images into clickable items */
+    images.forEach((img, index) => {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute(
+        'aria-label',
+        img.alt
+          ? `Open image: ${img.alt}`
+          : `Open image ${index + 1}`
+      );
+    });
+
+    /* Build lightbox automatically */
+    const lightbox = document.createElement('div');
+    lightbox.className = 'article-lightbox';
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Image gallery');
+
+    lightbox.innerHTML = `
+      <button
+        class="article-lightbox-close"
+        type="button"
+        aria-label="Close gallery"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 5L19 19M19 5L5 19"/>
+        </svg>
+      </button>
+
+      <button
+        class="article-lightbox-nav article-lightbox-prev"
+        type="button"
+        aria-label="Previous image"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 5L8 12L15 19"/>
+        </svg>
+      </button>
+
+      <div class="article-lightbox-stage">
+        <img class="article-lightbox-image" src="" alt="">
+        <div
+          class="article-lightbox-count"
+          aria-live="polite"
+        ></div>
+      </div>
+
+      <button
+        class="article-lightbox-nav article-lightbox-next"
+        type="button"
+        aria-label="Next image"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 5L16 12L9 19"/>
+        </svg>
+      </button>
+    `;
+
+    document.body.appendChild(lightbox);
+
+    const lightboxImage =
+      lightbox.querySelector('.article-lightbox-image');
+
+    const count =
+      lightbox.querySelector('.article-lightbox-count');
+
+    const closeButton =
+      lightbox.querySelector('.article-lightbox-close');
+
+    const previousButton =
+      lightbox.querySelector('.article-lightbox-prev');
+
+    const nextButton =
+      lightbox.querySelector('.article-lightbox-next');
+
+    let currentIndex = 0;
+    let touchStartX = 0;
+
+    function showImage(index) {
+      currentIndex =
+        (index + images.length) % images.length;
+
+      const source = images[currentIndex];
+
+      lightboxImage.src = source.currentSrc || source.src;
+      lightboxImage.alt = source.alt || '';
+
+      count.textContent =
+        `${currentIndex + 1} / ${images.length}`;
+    }
+
+    function openLightbox(index) {
+      showImage(index);
+
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+
+      document.body.classList.add('gallery-open');
+
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+
+      document.body.classList.remove('gallery-open');
+
+      images[currentIndex].focus();
+    }
+
+    function previousImage() {
+      showImage(currentIndex - 1);
+    }
+
+    function nextImage() {
+      showImage(currentIndex + 1);
+    }
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        openLightbox(index);
+      });
+
+      img.addEventListener('keydown', event => {
+        if (
+          event.key === 'Enter' ||
+          event.key === ' '
+        ) {
+          event.preventDefault();
+          openLightbox(index);
+        }
+      });
+    });
+
+    closeButton.addEventListener(
+      'click',
+      closeLightbox
+    );
+
+    previousButton.addEventListener(
+      'click',
+      previousImage
+    );
+
+    nextButton.addEventListener(
+      'click',
+      nextImage
+    );
+
+    /* Click dark background to close */
+    lightbox.addEventListener('click', event => {
+      if (
+        event.target === lightbox ||
+        event.target.classList.contains(
+          'article-lightbox-stage'
+        )
+      ) {
+        closeLightbox();
+      }
+    });
+
+    /* Keyboard controls */
+    document.addEventListener('keydown', event => {
+      if (!lightbox.classList.contains('is-open')) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+
+      if (event.key === 'ArrowLeft') {
+        previousImage();
+      }
+
+      if (event.key === 'ArrowRight') {
+        nextImage();
+      }
+    });
+
+    /* Mobile swipe */
+    lightbox.addEventListener(
+      'touchstart',
+      event => {
+        touchStartX =
+          event.changedTouches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    lightbox.addEventListener(
+      'touchend',
+      event => {
+        const touchEndX =
+          event.changedTouches[0].clientX;
+
+        const distance =
+          touchEndX - touchStartX;
+
+        if (Math.abs(distance) < 45) return;
+
+        if (distance > 0) {
+          previousImage();
+        } else {
+          nextImage();
+        }
+      },
+      { passive: true }
+    );
+  });
+}
+
+initArticleGalleries();
+
+
+
+
+
+
+
+
+
 
 
 
