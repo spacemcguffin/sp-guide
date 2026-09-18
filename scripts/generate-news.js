@@ -46,8 +46,9 @@ const articles = files.map(file => {
     date:
       getMeta(html, 'article:published_time'),
 
-    image:
-      getMeta(html, 'og:image'),
+image:
+  getMeta(html, 'news:image') ||
+  getMeta(html, 'og:image'),
 
     category:
       getMeta(html, 'news:category') || 'News',
