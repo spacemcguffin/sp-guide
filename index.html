@@ -95,36 +95,24 @@
 <div class="section-title-row">
 <h2>Latest News</h2>
 </div>
-<div class="news-grid">
+
+
+
+
+
+    
+<div class="news-grid" id="newsGrid"></div>
 
   
 
-<a class="news-item" href="/news/south-american-biker-gangs">
-  <img src="/news/img/bikergang.png"/>
-  <div class="date">September 15, 2026</div>
-  <h3>“South American Biker Gangs” – Season 29 Premieres After Winning Sixth Emmy</h3></a>
-
-    
-    
-<a class="news-item" href="/news/south-park-becomes-south-america">
-  <img src="/news/img/southamerica.png"/>
-  <div class="date">September 9, 2026</div>
-  <h3>South Park Becomes SOUTH AMERICA!</h3></a>
-
-    
-  
-<a class="news-item" href="/news/season-29-begins-september">
-  <img src="/news/img/placeholder.png"/>
-  <div class="date">May 19, 2026</div>
-  <h3>Season 29 Begins September 16th</h3></a>
-
-    
-  
-</div>
-
-
-    
 <div class="news-pagination" id="newsPagination" aria-label="News pagination"></div>
+
+
+
+
+
+
+    
 </section>
 
 <section id="latest-season" aria-labelledby="latestSeasonTitle">
@@ -298,49 +286,267 @@ if (heroSlides.length) {
   startHeroAutoplay();
 }
 
-const newsGrid = document.querySelector('.news-grid');
+
+
+
+
+   const newsGrid = document.getElementById('newsGrid');
 const newsPagination = document.getElementById('newsPagination');
 
-if (newsGrid && newsPagination) {
-  const cards = [...newsGrid.querySelectorAll('.news-item')];
-  const perPage = 6;
-  const pageCount = Math.ceil(cards.length / perPage);
+const newsPerPage = 6;
 
-  function showNewsPage(page) {
-    cards.forEach((card, index) => {
-      card.hidden = Math.floor(index / perPage) !== page;
-    });
 
-    [...newsPagination.children].forEach((button, index) => {
-      const active = index === page;
-      button.classList.toggle('is-active', active);
-      if (active) button.setAttribute('aria-current', 'page');
-      else button.removeAttribute('aria-current');
-    });
+/* -------------------------
+   NEWS DATE
+------------------------- */
+
+function formatNewsDate(dateString) {
+  const date = new Date(`${dateString}T12:00:00`);
+
+  if (Number.isNaN(date.getTime())) {
+    return dateString;
   }
 
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+}
+
+
+/* -------------------------
+   CREATE NEWS CARD
+------------------------- */
+
+function createNewsCard(article) {
+  const card = document.createElement('a');
+
+  card.className = 'news-item';
+  card.href = article.url;
+
+
+  const image = document.createElement('img');
+
+  image.src = article.image;
+  image.alt = '';
+  image.loading = 'lazy';
+
+
+  const date = document.createElement('div');
+
+  date.className = 'date';
+  date.textContent = formatNewsDate(article.date);
+
+
+  const title = document.createElement('h3');
+
+  title.textContent = article.title;
+
+
+  card.append(
+    image,
+    date,
+    title
+  );
+
+  return card;
+}
+
+
+/* -------------------------
+   NEWS PAGINATION
+------------------------- */
+
+function initNewsPagination(cards) {
+  if (!newsPagination) return;
+
+  newsPagination.innerHTML = '';
+
+  const pageCount = Math.ceil(
+    cards.length / newsPerPage
+  );
+
+
+  function showNewsPage(page) {
+
+    cards.forEach((card, index) => {
+
+      card.hidden =
+        Math.floor(index / newsPerPage) !== page;
+
+    });
+
+
+    [...newsPagination.children].forEach(
+      (button, index) => {
+
+        const active = index === page;
+
+        button.classList.toggle(
+          'is-active',
+          active
+        );
+
+        if (active) {
+          button.setAttribute(
+            'aria-current',
+            'page'
+          );
+        } else {
+          button.removeAttribute(
+            'aria-current'
+          );
+        }
+
+      }
+    );
+
+  }
+
+
   for (let page = 0; page < pageCount; page++) {
-    const button = document.createElement('button');
+
+    const button =
+      document.createElement('button');
+
     button.type = 'button';
     button.className = 'news-page';
     button.textContent = String(page + 1);
-    button.setAttribute('aria-label', `News page ${page + 1}`);
+
+    button.setAttribute(
+      'aria-label',
+      `News page ${page + 1}`
+    );
+
+
     button.addEventListener('click', () => {
+
       showNewsPage(page);
-      const newsSection = document.getElementById('news');
+
+      const newsSection =
+        document.getElementById('news');
+
       if (newsSection) {
+
         newsSection.scrollIntoView({
-          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          behavior:
+            window.matchMedia(
+              '(prefers-reduced-motion: reduce)'
+            ).matches
+              ? 'auto'
+              : 'smooth',
+
           block: 'start'
         });
+
       }
+
     });
+
+
     newsPagination.appendChild(button);
+
   }
 
-  if (pageCount <= 1) newsPagination.hidden = true;
-  showNewsPage(0);
+
+  newsPagination.hidden =
+    pageCount <= 1;
+
+
+  if (cards.length) {
+    showNewsPage(0);
+  }
 }
+
+
+/* -------------------------
+   LOAD NEWS.JSON
+------------------------- */
+
+async function loadLatestNews() {
+
+  if (!newsGrid) return;
+
+
+  try {
+
+    const response = await fetch(
+      '/news/news.json',
+      {
+        cache: 'no-cache'
+      }
+    );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `${response.status} ${response.statusText}`
+      );
+
+    }
+
+
+    const articles =
+      await response.json();
+
+
+    /* Newest first */
+
+    articles.sort(
+      (a, b) =>
+        new Date(b.date) -
+        new Date(a.date)
+    );
+
+
+    newsGrid.innerHTML = '';
+
+
+    const cards = articles.map(article => {
+
+      const card =
+        createNewsCard(article);
+
+      newsGrid.appendChild(card);
+
+      return card;
+
+    });
+
+
+    initNewsPagination(cards);
+
+
+  } catch (error) {
+
+    console.error(
+      'Could not load news:',
+      error
+    );
+
+
+    newsGrid.innerHTML =
+      '<p class="news-load-error">Latest news could not be loaded.</p>';
+
+
+    if (newsPagination) {
+      newsPagination.hidden = true;
+    }
+
+  }
+
+}
+
+
+loadLatestNews(); 
+
+
+
+
+
+    
 
 const seasonPreview = document.getElementById('seasonPreview');
 const seasonPreviewLink = document.getElementById('seasonPreviewLink');
