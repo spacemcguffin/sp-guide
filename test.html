@@ -10,7 +10,7 @@
 
 <!-- SEO -->
 
-<meta name="description" content="A complete guide to Kenny McCormick from South Park, including his history, family, appearances, deaths and notable episodes.">
+<meta name="description" content="A complete guide to Kenny McCormick from South Park, including his history, appearances and notable episodes.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://southpark.guide/characters/kenny-mccormick">
 
@@ -43,7 +43,7 @@
 <style>
 
 /* =========================================================
-   ARTICLE HOUSE STYLE
+   ARTICLE / CHARACTER HERO
    ========================================================= */
 
 .article-hero{
@@ -89,46 +89,18 @@
   line-height:1.55;
 }
 
-
-/* =========================================================
-   CHARACTER HERO
-   ========================================================= */
-
-.character-hero .article-hero-inner{
-  padding-bottom:0;
-}
-
-.character-hero-image{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
+.article-hero-image{
   width:100%;
-  min-height:430px;
-  margin-top:32px;
+  margin-top:38px;
   overflow:hidden;
-  position:relative;
+  background:#dde2e7;
 }
 
-.character-hero-image::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:28px;
-  width:min(520px,70%);
-  aspect-ratio:1;
-  border-radius:50%;
-  background:rgba(23,34,51,.045);
-  transform:translateX(-50%);
-}
-
-.character-hero-image img{
+.article-hero-image img{
   display:block;
-  position:relative;
-  z-index:1;
-  width:auto;
-  max-width:min(430px,70%);
-  max-height:430px;
-  object-fit:contain;
+  width:100%;
+  aspect-ratio:16/8.5;
+  object-fit:cover;
 }
 
 
@@ -149,19 +121,10 @@
   margin:auto;
 }
 
-.character-body{
-  padding-top:52px;
-}
-
 .article-body p{
   margin:0 0 1.55em;
   font-size:1.08rem;
   line-height:1.76;
-}
-
-.character-body .article-body-inner > p:first-child{
-  font-size:1.22rem;
-  line-height:1.7;
 }
 
 .article-body h2{
@@ -281,99 +244,6 @@
 
 
 /* =========================================================
-   FAMILY / RELATIONSHIPS
-   ========================================================= */
-
-.character-relations{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
-  margin-top:28px;
-}
-
-.article-body .character-relation{
-  display:block;
-  color:var(--ink);
-  text-decoration:none;
-  background-image:none;
-}
-
-.character-relation-image{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  height:210px;
-  margin-bottom:13px;
-  overflow:hidden;
-  background:#eceeef;
-}
-
-.character-relation-image img{
-  display:block;
-  width:100%;
-  height:100%;
-  padding:18px 12px 0;
-  object-fit:contain;
-  object-position:center bottom;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1);
-}
-
-.character-relation:hover .character-relation-image img{
-  transform:scale(1.04);
-}
-
-.character-relation strong{
-  display:block;
-  font-family:"Google Sans Flex","Inter",sans-serif;
-  font-size:.98rem;
-  font-weight:760;
-  line-height:1.2;
-}
-
-.character-relation span{
-  display:block;
-  margin-top:4px;
-  color:rgba(23,34,51,.52);
-  font-size:.72rem;
-  font-weight:650;
-  line-height:1.3;
-}
-
-
-/* =========================================================
-   DEATH COUNTER
-   ========================================================= */
-
-.character-stat{
-  display:flex;
-  align-items:baseline;
-  gap:14px;
-  margin:34px 0 38px;
-  padding:26px 0 27px;
-  border-top:1px solid rgba(23,34,51,.14);
-  border-bottom:1px solid rgba(23,34,51,.14);
-}
-
-.character-stat-number{
-  color:var(--ink);
-  font-family:"Google Sans Flex","Inter",sans-serif;
-  font-size:clamp(4.5rem,12vw,7rem);
-  font-weight:780;
-  line-height:.8;
-  letter-spacing:-.06em;
-}
-
-.character-stat-label{
-  color:rgba(23,34,51,.52);
-  font-size:.72rem;
-  font-weight:800;
-  letter-spacing:.09em;
-  line-height:1.2;
-  text-transform:uppercase;
-}
-
-
-/* =========================================================
    NOTABLE EPISODES
    ========================================================= */
 
@@ -427,60 +297,6 @@
   font-size:1.05rem;
   font-weight:720;
   line-height:1.25;
-}
-
-
-/* =========================================================
-   GALLERY
-   ========================================================= */
-
-.article-gallery{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:9px;
-  margin:2.3em 0 2.6em;
-  overflow:hidden;
-}
-
-.character-gallery{
-  margin-top:28px;
-}
-
-.article-gallery:has(> img:only-child){
-  grid-template-columns:1fr;
-}
-
-.article-gallery:has(> img:nth-child(2):last-child){
-  grid-template-columns:repeat(2,minmax(0,1fr));
-}
-
-.article-gallery:has(> img:nth-child(4)){
-  grid-template-columns:repeat(2,minmax(0,1fr));
-}
-
-.article-gallery:has(> img:nth-child(4)) > img:last-child:nth-child(odd){
-  grid-column:1 / -1;
-  aspect-ratio:16/9;
-}
-
-.article-gallery img{
-  display:block;
-  width:100%;
-  aspect-ratio:16/9;
-  object-fit:cover;
-  cursor:pointer;
-  transition:
-    transform .3s cubic-bezier(.2,.8,.2,1),
-    opacity .25s ease;
-}
-
-.article-gallery img:hover{
-  transform:scale(1.035);
-}
-
-.article-gallery img:focus-visible{
-  outline:2px solid #2563a8;
-  outline-offset:-2px;
 }
 
 
@@ -617,10 +433,6 @@
     padding:44px 0 28px;
   }
 
-  .character-hero .article-hero-inner{
-    padding-bottom:0;
-  }
-
   .article-hero h1{
     font-size:clamp(2rem,9vw,3.5rem);
   }
@@ -629,36 +441,21 @@
     font-size:1rem;
   }
 
-  .character-hero-image{
-    min-height:300px;
-    margin-top:24px;
+  .article-hero-image{
+    margin-top:28px;
   }
 
-  .character-hero-image::before{
-    bottom:18px;
-    width:80%;
-  }
-
-  .character-hero-image img{
-    max-width:76%;
-    max-height:300px;
+  .article-hero-image img{
+    aspect-ratio:16/10;
   }
 
   .article-body{
     padding:6px 0 68px;
   }
 
-  .character-body{
-    padding-top:38px;
-  }
-
   .article-body p{
     font-size:1.02rem;
     line-height:1.72;
-  }
-
-  .character-body .article-body-inner > p:first-child{
-    font-size:1.08rem;
   }
 
   .character-section{
@@ -680,67 +477,12 @@
     border-left:0;
   }
 
-  .character-relations{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:8px;
-  }
-
-  .character-relation-image{
-    height:145px;
-  }
-
-  .character-relation-image img{
-    padding:12px 6px 0;
-  }
-
-  .character-relation strong{
-    font-size:.82rem;
-  }
-
-  .character-relation span{
-    font-size:.65rem;
-  }
-
-  .character-stat{
-    align-items:flex-end;
-    gap:11px;
-    margin:28px 0 31px;
-  }
-
-  .character-stat-number{
-    font-size:4.5rem;
-  }
-
-  .character-stat-label{
-    padding-bottom:3px;
-  }
-
   .character-episodes{
     gap:22px 9px;
   }
 
   .character-episode strong{
     font-size:.9rem;
-  }
-
-  .article-gallery{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:7px;
-    margin:2em 0 2.2em;
-  }
-
-  .article-gallery:has(> img:only-child){
-    grid-template-columns:1fr;
-  }
-
-  .article-gallery:has(> img:nth-child(3)) > img:first-child{
-    grid-column:1 / -1;
-    aspect-ratio:16/9;
-  }
-
-  .article-gallery:has(> img:nth-child(4)) > img:last-child:nth-child(odd){
-    grid-column:1 / -1;
-    aspect-ratio:16/9;
   }
 
   .character-navigation{
@@ -771,7 +513,7 @@
      CHARACTER HERO
      ===================================================== -->
 
-<section class="article-hero character-hero">
+<section class="article-hero">
 
 <div class="article-hero-inner">
 
@@ -783,7 +525,7 @@
 South Park's perpetually doomed, orange-parka-wearing fourth-grader.
 </p>
 
-<div class="character-hero-image">
+<div class="article-hero-image">
 <img
   src="/characters/img/kenny-mccormick.png"
   alt="Kenny McCormick">
@@ -797,11 +539,11 @@ South Park's perpetually doomed, orange-parka-wearing fourth-grader.
      CHARACTER BODY
      ===================================================== -->
 
-<article class="article-body character-body">
+<article class="article-body">
 
 <div class="article-body-inner">
 
-<!-- INTRO -->
+<!-- INTRODUCTION -->
 
 <p>
 <b>Kenny McCormick</b> is one of the four central characters of
@@ -908,85 +650,6 @@ appearance was kept relatively rare during the show's earlier years.
 </section>
 
 <!-- =====================================================
-     FAMILY
-     ===================================================== -->
-
-<section class="character-section">
-
-<div class="character-section-label">Family</div>
-
-<h2>The McCormicks</h2>
-
-<div class="character-relations">
-
-<a class="character-relation" href="/characters/stuart-mccormick">
-
-<div class="character-relation-image">
-<img src="/characters/img/stuart-mccormick.png" alt="Stuart McCormick">
-</div>
-
-<strong>Stuart McCormick</strong> <span>Father</span>
-
-</a>
-
-<a class="character-relation" href="/characters/carol-mccormick">
-
-<div class="character-relation-image">
-<img src="/characters/img/carol-mccormick.png" alt="Carol McCormick">
-</div>
-
-<strong>Carol McCormick</strong> <span>Mother</span>
-
-</a>
-
-<a class="character-relation" href="/characters/karen-mccormick">
-
-<div class="character-relation-image">
-<img src="/characters/img/karen-mccormick.png" alt="Karen McCormick">
-</div>
-
-<strong>Karen McCormick</strong> <span>Sister</span>
-
-</a>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     KENNY'S DEATHS
-     ===================================================== -->
-
-<section class="character-section character-deaths">
-
-<div class="character-section-label">Kenny's deaths</div>
-
-<h2>Oh my God, they killed Kenny!</h2>
-
-<p>
-Kenny's repeated deaths became one of the defining running jokes of early
-<i>South Park</i>. He could be crushed, burned, electrocuted, shot or otherwise
-killed, only to return in a later episode without explanation.
-</p>
-
-<div class="character-stat">
-
-<span class="character-stat-number">?</span>
-
-<span class="character-stat-label">
-Deaths and counting
-</span>
-
-</div>
-
-<p>
-The running gag eventually became less frequent, while later stories explored
-why Kenny is seemingly unable to remain dead.
-</p>
-
-</section>
-
-<!-- =====================================================
      NOTABLE EPISODES
      ===================================================== -->
 
@@ -1001,81 +664,42 @@ why Kenny is seemingly unable to remain dead.
 <a class="character-episode" href="/episodes?episode=s05e13">
 
 <div class="character-episode-image">
-<img src="/characters/img/kenny-episode-1.jpg" alt="">
+<img src="/characters/img/kenny-episode-1.jpg" alt="Kenny Dies">
 </div>
 
-<span class="character-episode-code">S05E13</span>
-
-<strong>Kenny Dies</strong>
+<span class="character-episode-code">S05E13</span> <strong>Kenny Dies</strong>
 
 </a>
 
 <a class="character-episode" href="/episodes?episode=s09e06">
 
 <div class="character-episode-image">
-<img src="/characters/img/kenny-episode-2.jpg" alt="">
+<img src="/characters/img/kenny-episode-2.jpg" alt="The Death of Eric Cartman">
 </div>
 
-<span class="character-episode-code">S09E06</span>
-
-<strong>The Death of Eric Cartman</strong>
+<span class="character-episode-code">S09E06</span> <strong>The Death of Eric Cartman</strong>
 
 </a>
 
 <a class="character-episode" href="/episodes?episode=s13e14">
 
 <div class="character-episode-image">
-<img src="/characters/img/kenny-episode-3.jpg" alt="">
+<img src="/characters/img/kenny-episode-3.jpg" alt="Pee">
 </div>
 
-<span class="character-episode-code">S13E14</span>
-
-<strong>Pee</strong>
+<span class="character-episode-code">S13E14</span> <strong>Pee</strong>
 
 </a>
 
 <a class="character-episode" href="/episodes?episode=s14e11">
 
 <div class="character-episode-image">
-<img src="/characters/img/kenny-episode-4.jpg" alt="">
+<img src="/characters/img/kenny-episode-4.jpg" alt="Coon 2: Hindsight">
 </div>
 
-<span class="character-episode-code">S14E11</span>
-
-<strong>Coon 2: Hindsight</strong>
+<span class="character-episode-code">S14E11</span> <strong>Coon 2: Hindsight</strong>
 
 </a>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     GALLERY
-     ===================================================== -->
-
-<section class="character-section">
-
-<div class="character-section-label">Gallery</div>
-
-<h2>Kenny through the years</h2>
-
-<div class="article-gallery character-gallery">
-
-<img
-src="/characters/img/kenny-gallery-1.png"
-alt="Kenny McCormick"
-data-caption="Kenny McCormick">
-
-<img
-src="/characters/img/kenny-gallery-2.png"
-alt="Kenny without his parka"
-data-caption="Kenny without his parka">
-
-<img
-src="/characters/img/kenny-gallery-3.png"
-alt="Kenny as Mysterion"
-data-caption="Mysterion">
 
 </div>
 
@@ -1091,21 +715,13 @@ data-caption="Mysterion">
 
 <ul class="character-trivia">
 
-<li>
-Kenny's dialogue is deliberately muffled by his parka.
-</li>
+<li>Kenny's dialogue is deliberately muffled by his parka.</li>
 
-<li>
-His full first name is Kenneth.
-</li>
+<li>His full first name is Kenneth.</li>
 
-<li>
-His superhero alter ego is Mysterion.
-</li>
+<li>His superhero alter ego is Mysterion.</li>
 
-<li>
-His repeated deaths were one of the show's earliest recurring jokes.
-</li>
+<li>His repeated deaths were one of the show's earliest recurring jokes.</li>
 
 </ul>
 
