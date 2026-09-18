@@ -382,12 +382,6 @@
   grid-template-columns:repeat(2,minmax(0,1fr));
 }
 
-/* With 5, 7, 9, etc. images, let the final image fill the last row */
-.article-gallery:has(> img:nth-child(4)) > img:last-child:nth-child(odd){
-  grid-column:1 / -1;
-  aspect-ratio:16/9;
-}
-
 .article-gallery img{
   display:block;
   width:100%;
@@ -603,29 +597,27 @@ body.gallery-open{
 
 
 /* Article gallery */
-.article-gallery{
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:7px;
-  margin:2em 0 2.2em;
-}
+  .article-gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;
+    margin:2em 0 2.2em;
+  }
 
-/* One image only: full width */
-.article-gallery:has(> img:only-child){
-  grid-template-columns:1fr;
-}
+  /* One image only: full width */
+  .article-gallery:has(> img:only-child){
+    grid-template-columns:1fr;
+  }
 
-/* Keep mobile thumbnails consistent */
-.article-gallery img{
-  grid-column:auto;
-  width:100%;
-  aspect-ratio:16/9;
-  object-fit:cover;
-}
+  /* Reset placement and keep every thumbnail 16:9 */
+  .article-gallery > img{
+    grid-column:auto;
+    aspect-ratio:16/9;
+  }
 
-/* Odd number of images: final image fills the last row */
-.article-gallery:has(> img:nth-child(3)) > img:last-child:nth-child(odd){
-  grid-column:1 / -1;
-}
+  /* Odd number of images: final image fills the last row */
+  .article-gallery > img:last-child:nth-child(odd){
+    grid-column:1 / -1;
+  }
 
 
   /* Gallery lightbox */
