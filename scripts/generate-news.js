@@ -202,4 +202,4 @@ fs.writeFileSync(
 
 console.log(
   `Generated sitemap.xml with ${urls.length} URLs.`
-);
+); 
