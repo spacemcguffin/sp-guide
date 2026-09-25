@@ -1,10 +1,11 @@
-name: Generate News Index
+name: Generate News Index and Sitemap
 
 on:
   push:
     paths:
       - "news/**"
       - "scripts/generate-news.js"
+      - "*.html"
 
 permissions:
   contents: write
@@ -22,20 +23,20 @@ jobs:
         with:
           node-version: 22
 
-      - name: Generate news.json
+      - name: Generate news.json and sitemap.xml
         run: node scripts/generate-news.js
 
-      - name: Commit updated news index
+      - name: Commit updated news index and sitemap
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add news/news.json
+          git add news/news.json sitemap.xml
 
           if git diff --cached --quiet; then
             echo "No changes."
             exit 0
           fi
 
-          git commit -m "Update news index"
+          git commit -m "Update news index and sitemap"
           git push
