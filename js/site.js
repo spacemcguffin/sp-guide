@@ -456,3 +456,59 @@ initArticleGalleries();
 
   document.head.appendChild(script);
 })();
+
+/* Copyable article links: works on all news articles using .article-date. */
+(function initArticleShare() {
+  function mount() {
+    const date = document.querySelector('.article-hero .article-date');
+    if (!date || date.parentElement.classList.contains('article-date-row')) return;
+
+    const row = document.createElement('div');
+    row.className = 'article-date-row';
+    date.parentNode.insertBefore(row, date);
+    row.appendChild(date);
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'article-share';
+    button.setAttribute('aria-label', 'Copy article link');
+    button.title = 'Copy article link';
+    const shareSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.1m-6.6 6.7 6.6 4.1"/></svg>';
+    const checkSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>';
+    button.innerHTML = shareSvg + '<span class="article-share-label" aria-live="polite"></span>';
+    row.appendChild(button);
+
+    let resetTimer;
+    button.addEventListener('click', async () => {
+      const canonical = document.querySelector('link[rel="canonical"]');
+      const url = canonical && canonical.href ? canonical.href : location.href;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const field = document.createElement('textarea');
+          field.value = url;
+          field.style.position = 'fixed';
+          field.style.opacity = '0';
+          document.body.appendChild(field);
+          field.select();
+          const success = document.execCommand('copy');
+          field.remove();
+          if (!success) throw new Error('Copy failed');
+        }
+        button.innerHTML = checkSvg + '<span class="article-share-label" aria-live="polite">Copied!</span>';
+        button.setAttribute('aria-label', 'Article link copied');
+      } catch (_) {
+        button.innerHTML = shareSvg + '<span class="article-share-label" aria-live="polite">Copy failed</span>';
+        button.setAttribute('aria-label', 'Unable to copy article link');
+      }
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        button.innerHTML = shareSvg + '<span class="article-share-label" aria-live="polite"></span>';
+        button.setAttribute('aria-label', 'Copy article link');
+      }, 2200);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
+  else mount();
+})();
