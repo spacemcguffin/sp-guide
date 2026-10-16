@@ -53,3 +53,11 @@
 @media(max-width:1180px){.wiki-page-grid{grid-template-columns:175px minmax(0,1fr);gap:24px}.wiki-content-grid{grid-template-columns:minmax(0,1fr) 300px;gap:23px}}
 @media(max-width:950px){.wiki-page-grid{display:block}.wiki-contents{display:none}.wiki-content-grid{grid-template-columns:minmax(0,1fr) 290px;gap:22px}}
 @media(max-width:720px){.wiki{padding-top:22px}.wiki-shell{width:calc(100% - 30px)}.wiki-heading h1{font-size:clamp(2.15rem,8vw,3.1rem)}.wiki-content-grid{display:flex;flex-direction:column}.wiki-right-rail{width:100%}.wiki-dek{line-height:1.7}.wiki-dek span{padding:0 4px}.wiki-tabs{gap:0}.wiki-tabs a{padding:13px}.wiki-section h2{font-size:1.55rem}.wiki-share{padding:9px 11px}.wiki-meta-row{align-items:flex-start}}
+
+/* Floating infobox: body text uses the full width beneath the box. */
+.wiki .wiki-content-grid{display:block}
+.wiki .wiki-article{display:flow-root;width:100%}
+.wiki .wiki-right-rail{float:right;width:min(38%,390px);min-width:290px;margin:0 0 26px 34px}
+@media(max-width:1180px){.wiki .wiki-right-rail{width:300px;margin-left:24px}}
+@media(max-width:950px){.wiki .wiki-right-rail{width:290px;margin-left:22px}}
+@media(max-width:720px){.wiki .wiki-right-rail{float:none;width:100%;min-width:0;margin:0 0 28px}.wiki .wiki-content-grid{display:block}}
