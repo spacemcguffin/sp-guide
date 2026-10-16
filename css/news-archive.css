@@ -1,39 +1,69 @@
-/* News archive: reuse the homepage's #news, .news-grid and .news-item styles.
-   Only archive-specific controls and layout adjustments live here. */
-.news-archive-page .scroll-header {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
+/* Archive-only additions. All article cards, section heading, header and footer
+   are styled by /css/southpark.css, exactly as on the homepage. */
+
+/* The shared header normally appears only after scrolling past the homepage hero.
+   The archive has no hero, so keep it visible here. */
+body.news-archive-page #scrollHeader {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
-.news-archive-page main { padding-top: 54px; }
-.news-archive-page #news { min-height: calc(100vh - 150px); }
-.archive-toolbar {
+
+body.news-archive-page main { padding-top: 54px; }
+body.news-archive-page #news { min-height: calc(100vh - 144px); }
+
+/* Search, sort and pagination are unique to this page. */
+.news-archive-page .archive-toolbar {
   display: flex;
-  align-items: stretch;
   gap: 12px;
-  margin-bottom: 18px;
+  align-items: stretch;
+  margin: 0 0 18px;
 }
-.archive-search, .archive-sort-wrap {
+.news-archive-page .archive-search,
+.news-archive-page .archive-sort-wrap {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #fff;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 0 14px;
   border: 1px solid #d8dde3;
-  color: var(--ink);
+  background: #fff;
+  color: #172233;
 }
-.archive-search { flex: 1; min-width: 0; padding: 0 14px; }
-.archive-search:focus-within, .archive-sort-wrap:focus-within { outline: 2px solid var(--guide-blue); outline-offset: 2px; }
-.archive-search svg { width: 18px; height: 18px; flex: none; color: #596778; }
-.archive-search input { width: 100%; min-width: 0; padding: 14px 0; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; }
-.archive-sort-wrap { padding: 0 14px; font-size: .85rem; }
-.archive-sort-wrap select { min-height: 47px; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
-.archive-status { margin: 0 0 20px; color: #657182; font-size: .8rem; }
-.archive-pages { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
-.archive-pages button { padding: 9px 13px; border: 1px solid #d8dde3; background: #fff; color: var(--ink); cursor: pointer; }
-.archive-pages button[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: #fff; font-weight: 750; }
-.archive-pages button:disabled { opacity: .4; cursor: default; }
-.archive-empty { grid-column: 1 / -1; text-align: center; padding: 40px; color: #657182; }
+.news-archive-page .archive-search { flex: 1; min-width: 0; }
+.news-archive-page .archive-search svg { width: 18px; height: 18px; flex: none; }
+.news-archive-page .archive-search input {
+  flex: 1; width: 100%; min-width: 0;
+  padding: 12px 0; border: 0; outline: 0;
+  background: transparent; color: inherit; font: inherit;
+}
+.news-archive-page .archive-sort-wrap { font-size: .85rem; }
+.news-archive-page .archive-sort-wrap select {
+  max-width: 100%; border: 0; outline: 0;
+  background: transparent; color: inherit; font: inherit;
+  cursor: pointer;
+}
+.news-archive-page .archive-search:focus-within,
+.news-archive-page .archive-sort-wrap:focus-within { outline: 2px solid #4572a1; outline-offset: 2px; }
+.news-archive-page .archive-status { margin: 0 0 20px; color: #657182; font-size: .8rem; }
+.news-archive-page .archive-pages {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 8px; margin-top: 34px;
+}
+.news-archive-page .archive-pages button {
+  padding: 9px 13px; border: 1px solid #d8dde3;
+  background: #fff; color: #172233; cursor: pointer;
+}
+.news-archive-page .archive-pages button[aria-current="page"] {
+  background: #172233; border-color: #172233; color: #fff; font-weight: 750;
+}
+.news-archive-page .archive-pages button:disabled { opacity: .4; cursor: default; }
+.news-archive-page .archive-empty {
+  grid-column: 1 / -1; padding: 40px 12px;
+  text-align: center; color: #657182;
+}
 @media (max-width: 650px) {
-  .archive-toolbar { flex-direction: column; }
-  .archive-sort-wrap { justify-content: space-between; }
+  .news-archive-page .archive-toolbar { flex-direction: column; }
+  .news-archive-page .archive-sort-wrap { justify-content: space-between; }
 }
