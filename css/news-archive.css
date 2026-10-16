@@ -1,7 +1,6 @@
 /* Archive-only additions. All article cards, section heading, header and footer
    are styled by /css/southpark.css, exactly as on the homepage. */
 
-body.news-archive-page main { padding-top: 54px; }
 body.news-archive-page #news { min-height: calc(100vh - 144px); }
 
 /* Search, sort and pagination are unique to this page. */
