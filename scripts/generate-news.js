@@ -60,7 +60,7 @@ function xmlEscape(value) {
 
 const files = fs.readdirSync(NEWS_DIR)
   .filter(file => file.endsWith('.html'))
-  .filter(file => file !== 'article-template.html');
+  .filter(file => file !== 'article-template.html' && file !== 'index.html');
 
 
 /* =========================================
