@@ -1,6 +1,7 @@
 /* Archive-only additions. All article cards, section heading, header and footer
    are styled by /css/southpark.css, exactly as on the homepage. */
 
+body.news-archive-page main { padding-top: 54px; }
 body.news-archive-page #news { min-height: calc(100vh - 144px); }
 
 /* Search, sort and pagination are unique to this page. */
@@ -57,4 +58,25 @@ body.news-archive-page #news { min-height: calc(100vh - 144px); }
 @media (max-width: 650px) {
   .news-archive-page .archive-toolbar { flex-direction: column; }
   .news-archive-page .archive-sort-wrap { justify-content: space-between; }
+}
+
+/* Compact search and sort controls */
+.news-archive-page .archive-toolbar { gap: 12px; margin-bottom: 14px; }
+.news-archive-page .archive-search,
+.news-archive-page .archive-sort-wrap { height: 50px; min-height: 50px; padding: 0 14px; }
+.news-archive-page .archive-search { gap: 12px; }
+.news-archive-page .archive-search > svg { width: 19px; height: 19px; }
+.news-archive-page .archive-search input { padding: 0; height: 100%; font-size: .95rem; }
+.news-archive-page .archive-search input::-webkit-search-cancel-button { display: none; }
+.news-archive-page .archive-clear { display: grid; place-items: center; width: 30px; height: 30px; padding: 5px; border: 0; background: transparent; color: #657182; cursor: pointer; }
+.news-archive-page .archive-clear[hidden] { display: none; }
+.news-archive-page .archive-clear:hover { color: #172233; }
+.news-archive-page .archive-clear svg { width: 17px; height: 17px; }
+.news-archive-page .archive-sort-wrap { flex: 0 0 auto; gap: 9px; }
+.news-archive-page .archive-sort-wrap > svg { width: 17px; height: 17px; flex: none; }
+.news-archive-page .archive-sort-wrap select { font-size: .87rem; }
+.news-archive-page .archive-status { margin: 0 0 18px; }
+@media (max-width: 650px) {
+  .news-archive-page .archive-toolbar { gap: 10px; }
+  .news-archive-page .archive-sort-wrap { align-self: flex-end; }
 }
