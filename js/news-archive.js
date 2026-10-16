@@ -6,7 +6,7 @@
   const clear = document.getElementById('archiveClear');
   const status = document.getElementById('archiveStatus');
   const pages = document.getElementById('archivePages');
-  const perPage = 12;
+  const perPage = 9;
   let articles = [], page = 1;
   const formatDate = value => { const d = new Date(`${value}T12:00:00`); return Number.isNaN(d.getTime()) ? value : new Intl.DateTimeFormat('en-GB', {day:'numeric',month:'long',year:'numeric'}).format(d); };
   function node(tag, cls, content) { const el = document.createElement(tag); if (cls) el.className = cls; if (content !== undefined) el.textContent = content; return el; }
