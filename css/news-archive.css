@@ -1,19 +1,39 @@
-/* Archive intentionally inherits the homepage Latest News section and card rules. */
-.news-archive-page{padding-top:54px;background:#11141d;color:#fff}
-.news-archive-page .scroll-header{transform:translateY(0);opacity:1;pointer-events:auto;background:#11141d}
-.news-archive-page #news{min-height:65vh}
-.news-archive-page #site-footer,.news-archive-page #site-footer footer{background:#11141d;color:#fff}
-.archive-toolbar{display:flex;gap:12px;align-items:stretch;margin:0 0 18px}
-.archive-search{display:flex;align-items:center;gap:10px;flex:1;min-width:0;background:#fff;border:1px solid #d8dde3;padding:0 14px}
-.archive-search:focus-within{outline:2px solid #5a84be;outline-offset:1px}
-.archive-search svg{width:18px;height:18px;flex:none;color:#596778}
-.archive-search input{width:100%;padding:14px 0;background:transparent;border:0;outline:0;font:inherit;color:#172233}
-.archive-sort-wrap{display:flex;align-items:center;gap:10px;padding:0 14px;background:#fff;border:1px solid #d8dde3;color:#172233;font-size:.85rem}
-.archive-sort-wrap select{min-height:47px;border:0;background:#fff;color:#172233;font:inherit;cursor:pointer}
-.archive-status{color:#657182;font-size:.8rem;margin:0 0 20px}
-.archive-pages{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:34px}
-.archive-pages button{border:1px solid #d8dde3;background:#fff;color:#172233;padding:9px 13px;font:inherit;cursor:pointer}
-.archive-pages button[aria-current=page]{background:#172233;border-color:#172233;color:#fff;font-weight:750}
-.archive-pages button:disabled{opacity:.4;cursor:default}
-.archive-empty{grid-column:1/-1;text-align:center;padding:40px;color:#657182}
-@media(max-width:650px){.archive-toolbar{flex-direction:column}.archive-sort-wrap{justify-content:space-between}}
+/* News archive: reuse the homepage's #news, .news-grid and .news-item styles.
+   Only archive-specific controls and layout adjustments live here. */
+.news-archive-page .scroll-header {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.news-archive-page main { padding-top: 54px; }
+.news-archive-page #news { min-height: calc(100vh - 150px); }
+.archive-toolbar {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.archive-search, .archive-sort-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #d8dde3;
+  color: var(--ink);
+}
+.archive-search { flex: 1; min-width: 0; padding: 0 14px; }
+.archive-search:focus-within, .archive-sort-wrap:focus-within { outline: 2px solid var(--guide-blue); outline-offset: 2px; }
+.archive-search svg { width: 18px; height: 18px; flex: none; color: #596778; }
+.archive-search input { width: 100%; min-width: 0; padding: 14px 0; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; }
+.archive-sort-wrap { padding: 0 14px; font-size: .85rem; }
+.archive-sort-wrap select { min-height: 47px; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.archive-status { margin: 0 0 20px; color: #657182; font-size: .8rem; }
+.archive-pages { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
+.archive-pages button { padding: 9px 13px; border: 1px solid #d8dde3; background: #fff; color: var(--ink); cursor: pointer; }
+.archive-pages button[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: #fff; font-weight: 750; }
+.archive-pages button:disabled { opacity: .4; cursor: default; }
+.archive-empty { grid-column: 1 / -1; text-align: center; padding: 40px; color: #657182; }
+@media (max-width: 650px) {
+  .archive-toolbar { flex-direction: column; }
+  .archive-sort-wrap { justify-content: space-between; }
+}
