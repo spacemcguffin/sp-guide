@@ -34,6 +34,24 @@
 }
 #news .news-archive-link-wrap .season-link {
   color: var(--ink);
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+#news .news-archive-link-chevron {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .2s ease;
+}
+#news .season-link:hover .news-archive-link-chevron,
+#news .season-link:focus-visible .news-archive-link-chevron {
+  transform: translateX(3px);
 }
 </style>
 </head>
@@ -120,7 +138,7 @@
   
 
 <div class="news-archive-link-wrap">
-  <a class="season-link" href="/news/">View All News <span aria-hidden="true">→</span></a>
+  <a class="season-link" href="/news/">View All News <svg class="news-archive-link-chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 5L16 12L9 19"/></svg></a>
 </div>
 
 
