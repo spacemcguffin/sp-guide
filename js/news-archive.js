@@ -38,7 +38,7 @@
     for (let n = start; n <= Math.min(totalPages, start + 4); n++) add(String(n), n, false, n === page);
     add('Next', page + 1, page === totalPages);
   }
-  search.addEventListener('input', () => { page = 1; render(); });
+  search.addEventListener('input', () => { clear.hidden = search.value.length === 0; page = 1; render(); });
   clear.addEventListener('click', () => { search.value = ''; page = 1; render(); search.focus(); });
   sort.addEventListener('change', () => { page = 1; render(); });
   fetch('/news/news.json', {cache:'no-cache'}).then(r => { if (!r.ok) throw Error(`HTTP ${r.status}`); return r.json(); }).then(data => { articles = Array.isArray(data) ? data.filter(a => a.title && a.url) : []; render(); }).catch(err => { console.error('News archive:', err); status.textContent = 'Could not load news articles. Please try again later.'; });
