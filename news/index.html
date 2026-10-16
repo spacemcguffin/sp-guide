@@ -15,8 +15,12 @@
 <main><section class="section" id="news" aria-labelledby="newsArchiveHeading">
 <div class="section-title-row"><h2 id="newsArchiveHeading">News Archive</h2></div>
 <div class="archive-toolbar">
-<label class="archive-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="archiveSearch" type="search" placeholder="Search news" aria-label="Search news articles" autocomplete="off"></label>
-<label class="archive-sort-wrap"><span>Sort by</span><select id="archiveSort" aria-label="Sort news articles"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="az">Title A–Z</option></select></label>
+  <label class="archive-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+    <input id="archiveSearch" type="search" placeholder="Search news..." aria-label="Search news articles" autocomplete="off">
+    <button id="archiveClear" class="archive-clear" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </label>
+  <label class="archive-sort-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8 4-4 4 4M7 4v16M21 16l-4 4-4-4m4 4V4"/></svg><select id="archiveSort" aria-label="Sort news articles"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="az">Title A–Z</option></select></label>
 </div>
 <p class="archive-status" id="archiveStatus" role="status" aria-live="polite">Loading articles…</p>
 <div class="news-grid" id="archiveGrid"></div>
