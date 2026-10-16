@@ -25,6 +25,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&amp;display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/css/southpark.css">
 <script src="/js/site.js" defer></script>
+<style>
+/* Homepage: link to the complete news archive */
+#news .news-archive-link-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+#news .news-archive-link-wrap .season-link {
+  color: var(--ink);
+}
+</style>
 </head>
 
     
@@ -108,7 +119,9 @@
 
   
 
-<div class="news-pagination" id="newsPagination" aria-label="News pagination"></div>
+<div class="news-archive-link-wrap">
+  <a class="season-link" href="/news/">View All News <span aria-hidden="true">→</span></a>
+</div>
 
 
 
@@ -294,9 +307,7 @@ if (heroSlides.length) {
 
 
    const newsGrid = document.getElementById('newsGrid');
-const newsPagination = document.getElementById('newsPagination');
 
-const newsPerPage = 6;
 
 
 /* -------------------------
@@ -358,112 +369,6 @@ function createNewsCard(article) {
 
 
 /* -------------------------
-   NEWS PAGINATION
-------------------------- */
-
-function initNewsPagination(cards) {
-  if (!newsPagination) return;
-
-  newsPagination.innerHTML = '';
-
-  const pageCount = Math.ceil(
-    cards.length / newsPerPage
-  );
-
-
-  function showNewsPage(page) {
-
-    cards.forEach((card, index) => {
-
-      card.hidden =
-        Math.floor(index / newsPerPage) !== page;
-
-    });
-
-
-    [...newsPagination.children].forEach(
-      (button, index) => {
-
-        const active = index === page;
-
-        button.classList.toggle(
-          'is-active',
-          active
-        );
-
-        if (active) {
-          button.setAttribute(
-            'aria-current',
-            'page'
-          );
-        } else {
-          button.removeAttribute(
-            'aria-current'
-          );
-        }
-
-      }
-    );
-
-  }
-
-
-  for (let page = 0; page < pageCount; page++) {
-
-    const button =
-      document.createElement('button');
-
-    button.type = 'button';
-    button.className = 'news-page';
-    button.textContent = String(page + 1);
-
-    button.setAttribute(
-      'aria-label',
-      `News page ${page + 1}`
-    );
-
-
-    button.addEventListener('click', () => {
-
-      showNewsPage(page);
-
-      const newsSection =
-        document.getElementById('news');
-
-      if (newsSection) {
-
-        newsSection.scrollIntoView({
-          behavior:
-            window.matchMedia(
-              '(prefers-reduced-motion: reduce)'
-            ).matches
-              ? 'auto'
-              : 'smooth',
-
-          block: 'start'
-        });
-
-      }
-
-    });
-
-
-    newsPagination.appendChild(button);
-
-  }
-
-
-  newsPagination.hidden =
-    pageCount <= 1;
-
-
-  if (cards.length) {
-    showNewsPage(0);
-  }
-}
-
-
-/* -------------------------
    LOAD NEWS.JSON
 ------------------------- */
 
@@ -507,19 +412,14 @@ async function loadLatestNews() {
     newsGrid.innerHTML = '';
 
 
-    const cards = articles.map(article => {
+    articles.slice(0, 6).forEach(article => {
 
       const card =
         createNewsCard(article);
 
       newsGrid.appendChild(card);
 
-      return card;
-
     });
-
-
-    initNewsPagination(cards);
 
 
   } catch (error) {
@@ -532,11 +432,6 @@ async function loadLatestNews() {
 
     newsGrid.innerHTML =
       '<p class="news-load-error">Latest news could not be loaded.</p>';
-
-
-    if (newsPagination) {
-      newsPagination.hidden = true;
-    }
 
   }
 
