@@ -1,56 +1,38 @@
 (() => {
- const button = document.getElementById('wiki-share');
- const label = document.getElementById('wiki-share-label');
- const status = document.getElementById('wiki-share-status');
- const fallbackCopy = (value) => {
-   const field = document.createElement('textarea');
-   field.value = value;
-   field.setAttribute('readonly', '');
-   field.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0';
-   document.body.appendChild(field);
-   field.select();
-   let copied = false;
-   try { copied = document.execCommand('copy'); } catch (_) {}
-   field.remove();
-   return copied;
- };
- if (button && label) {
-   let resetHandle;
-   button.addEventListener('click', async () => {
-     const url = window.location.href;
-     let copied = false;
-     if (navigator.clipboard && window.isSecureContext) {
-       try { await navigator.clipboard.writeText(url); copied = true; } catch (_) {}
-     }
-     if (!copied) copied = fallbackCopy(url);
-     if (copied) {
-       label.textContent = 'Copied!';
-       if (status) status.textContent = 'Page URL copied to clipboard.';
-     } else {
-       label.textContent = 'Select link';
-       if (status) {
-         status.textContent = 'Copy this URL: ';
-         const link = document.createElement('input');
-         link.type = 'text'; link.value = url; link.readOnly = true;
-         link.className = 'wiki-copy-fallback';
-         status.appendChild(link);
-         link.focus(); link.select();
-       }
-     }
-     clearTimeout(resetHandle);
-     resetHandle = setTimeout(() => {
-       label.textContent = 'Copy link';
-       if (copied && status) status.textContent = '';
-     }, 2200);
+ const button=document.getElementById('wiki-share');
+ const label=document.getElementById('wiki-share-label');
+ const status=document.getElementById('wiki-share-status');
+ async function copyLink(){
+   const url=location.href;
+   try{
+     if(!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard API unavailable');
+     await navigator.clipboard.writeText(url);
+   }catch(e){
+     const field=document.createElement('textarea');
+     field.value=url;field.style.position='fixed';field.style.opacity='0';
+     document.body.appendChild(field);field.select();
+     const success=document.execCommand('copy');field.remove();
+     if(!success){ if(status) status.textContent='Could not copy automatically. Copy the URL from your address bar.';return; }
+   }
+   if(label) label.textContent='Copied!';
+   if(status) status.textContent='Link copied to clipboard';
+   window.setTimeout(()=>{if(label)label.textContent='Share';if(status)status.textContent='';},2200);
+ }
+ if(button) button.addEventListener('click',copyLink);
+ const links=[...document.querySelectorAll('.wiki-contents a, .wiki-tabs a')];
+ const sections=[...document.querySelectorAll('.wiki-section[id]')];
+ function activate(id){
+   links.forEach(a=>{
+     const active=a.getAttribute('href')==='#'+id;
+     a.classList.toggle('active',active);
+     if(a.closest('.wiki-tabs'))a.classList.toggle('is-current',active);
    });
  }
- const links = [...document.querySelectorAll('.wiki-contents a')];
- if ('IntersectionObserver' in window && links.length) {
-   const observer = new IntersectionObserver(entries => {
-     for (const entry of entries) if (entry.isIntersecting) {
-       links.forEach(a => a.classList.toggle('active', a.hash === '#' + entry.target.id));
-     }
-   }, {rootMargin: '-100px 0px -65% 0px'});
-   document.querySelectorAll('.wiki-section[id]').forEach(s => observer.observe(s));
+ if('IntersectionObserver' in window){
+   const observer=new IntersectionObserver(entries=>{
+     for(const entry of entries) if(entry.isIntersecting)activate(entry.target.id);
+   },{rootMargin:'-100px 0px -65% 0px',threshold:0});
+   sections.forEach(s=>observer.observe(s));
  }
+ links.forEach(a=>a.addEventListener('click',()=>activate(a.hash.slice(1))));
 })();
