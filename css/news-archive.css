@@ -67,3 +67,30 @@ body.news-archive-page #news { min-height: calc(100vh - 144px); }
   .news-archive-page .archive-toolbar { flex-direction: column; }
   .news-archive-page .archive-sort-wrap { justify-content: space-between; }
 }
+
+
+
+
+/* News archive article typography */
+.news-archive .news-grid .news-item h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-align: left;
+  margin: 0;
+}
+
+.news-archive .news-grid .news-item .news-date {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0 0 0.4rem;
+  text-align: left;
+}
+
+.news-archive .news-grid .news-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
