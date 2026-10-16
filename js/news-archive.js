@@ -3,6 +3,7 @@
   if (!grid) return;
   const search = document.getElementById('archiveSearch');
   const sort = document.getElementById('archiveSort');
+  const clear = document.getElementById('archiveClear');
   const status = document.getElementById('archiveStatus');
   const pages = document.getElementById('archivePages');
   const perPage = 12;
@@ -11,6 +12,7 @@
   function node(tag, cls, content) { const el = document.createElement(tag); if (cls) el.className = cls; if (content !== undefined) el.textContent = content; return el; }
   function render() {
     const term = search.value.trim().toLocaleLowerCase();
+    clear.hidden = !search.value;
     const filtered = articles.filter(a => `${a.title || ''} ${a.description || ''}`.toLocaleLowerCase().includes(term));
     filtered.sort((a,b) => sort.value === 'az' ? (a.title || '').localeCompare(b.title || '') : sort.value === 'oldest' ? (a.date || '').localeCompare(b.date || '') : (b.date || '').localeCompare(a.date || ''));
     const listing = filtered;
@@ -37,6 +39,7 @@
     add('Next', page + 1, page === totalPages);
   }
   search.addEventListener('input', () => { page = 1; render(); });
+  clear.addEventListener('click', () => { search.value = ''; page = 1; render(); search.focus(); });
   sort.addEventListener('change', () => { page = 1; render(); });
   fetch('/news/news.json', {cache:'no-cache'}).then(r => { if (!r.ok) throw Error(`HTTP ${r.status}`); return r.json(); }).then(data => { articles = Array.isArray(data) ? data.filter(a => a.title && a.url) : []; render(); }).catch(err => { console.error('News archive:', err); status.textContent = 'Could not load news articles. Please try again later.'; });
 })();
