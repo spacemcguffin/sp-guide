@@ -1,0 +1,43 @@
+/* Wiki-only styles; shared header/footer stay in southpark.css */
+.wiki{background:#f8f8f8;color:#172233;min-height:75vh;font-family:"Inter",Arial,sans-serif;padding:48px 0 90px}
+.wiki *{box-sizing:border-box}
+.wiki-shell{width:min(1250px,calc(100% - 48px));margin:auto}
+.ency-breadcrumb{display:flex;gap:10px;flex-wrap:wrap;font-size:.77rem;color:#6b7786;margin-bottom:40px}
+.ency-breadcrumb a,.ency-article a{color:#2563a8;text-decoration:none}
+.ency-heading{border-bottom:1px solid #d4dbe2;margin-bottom:34px}
+.ency-kicker{font:750 .7rem "Google Sans Flex",sans-serif;text-transform:uppercase;letter-spacing:.12em;color:#2563a8;margin:0 0 10px}
+.ency-dot{color:#98a3ae;margin:0 5px}
+.ency-heading h1{font:780 clamp(2.8rem,5.5vw,5rem)/1.03 "Google Sans Flex",sans-serif;letter-spacing:-.045em;text-transform:uppercase;margin:0}
+.ency-dek{font-size:1.04rem;color:#647080;margin:14px 0 28px;line-height:1.5}
+.ency-tabs{display:flex;align-items:center;gap:26px;overflow-x:auto;white-space:nowrap}
+.ency-tabs a,.ency-tabs button{border:0;border-bottom:3px solid transparent;background:transparent;color:#647080;font:700 .82rem "Google Sans Flex",sans-serif;text-decoration:none;padding:13px 0;cursor:pointer}
+.ency-tabs a:hover,.ency-tabs button:hover{color:#2563a8}
+.ency-tabs a.is-current{border-color:#2563a8;color:#172233}
+.ency-tabs .ency-share{margin-left:auto;display:flex;align-items:center;gap:7px}
+.ency-layout{display:grid;grid-template-columns:170px minmax(0,1fr) 300px;gap:32px;align-items:start}
+.ency-contents{position:sticky;top:88px;display:flex;flex-direction:column;gap:0;border-left:2px solid #d9dfe5}
+.ency-side-title{font:800 .7rem "Google Sans Flex",sans-serif;text-transform:uppercase;letter-spacing:.09em;padding:0 0 12px 15px}
+.ency-contents a{font-size:.8rem;color:#536273;text-decoration:none;padding:9px 15px;line-height:1.3}
+.ency-contents a:hover,.ency-contents a.active{color:#2563a8;border-left:2px solid #2563a8;margin-left:-2px}
+.ency-article{min-width:0}
+.ency-section{scroll-margin-top:100px;margin:0 0 38px}
+.ency-article p,.ency-article li{font-size:.98rem;line-height:1.82;margin:0 0 18px}
+.ency-article .ency-lead{font-size:1.12rem;line-height:1.75}
+.ency-section h2{font:760 1.7rem/1.2 "Google Sans Flex",sans-serif;letter-spacing:-.03em;margin:0 0 18px;padding-bottom:11px;border-bottom:1px solid #d4dbe2}
+.ency-article ul{padding-left:22px}
+.ency-endnote{border-top:1px solid #d4dbe2;padding-top:20px;color:#798492;font-size:.78rem!important}
+.ency-infobox{border:1px solid #bfcddd;background:#fff}
+.ency-info-title{background:#e2edf8;text-align:center;padding:16px 12px;display:flex;flex-direction:column;gap:4px}
+.ency-info-title strong{font:800 1.25rem "Google Sans Flex",sans-serif}
+.ency-info-title span{font-size:.72rem;color:#52667d}
+.ency-info-image{padding:12px 12px 0}
+.ency-image-placeholder{min-height:195px;background:linear-gradient(145deg,#e3e9f0,#cdd8e5);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:#61768d;text-align:center}
+.ency-image-placeholder span{font:800 .78rem "Google Sans Flex",sans-serif;letter-spacing:.07em}
+.ency-image-placeholder small{font-size:.68rem;max-width:190px;line-height:1.5}
+.ency-infobox dl{padding:8px 14px 12px;margin:0}
+.ency-infobox dl div{display:grid;grid-template-columns:100px minmax(0,1fr);gap:10px;border-bottom:1px solid #e4e8ed;padding:12px 0;font-size:.76rem;line-height:1.45}
+.ency-infobox dl div:last-child{border-bottom:0}
+.ency-infobox dt{font-weight:750}
+.ency-infobox dd{margin:0}
+@media(max-width:1080px){.ency-layout{grid-template-columns:minmax(0,1fr) 270px}.ency-contents{display:none}}
+@media(max-width:720px){.wiki{padding-top:30px}.wiki-shell{width:calc(100% - 32px)}.ency-breadcrumb{margin-bottom:25px}.ency-layout{display:flex;flex-direction:column}.ency-article{order:1}.ency-infobox{order:2;width:100%}.ency-tabs{gap:20px}.ency-heading h1{font-size:clamp(2.5rem,10vw,3.5rem)}.ency-section{margin-bottom:28px}.ency-info-image .ency-image-placeholder{min-height:170px}}
