@@ -1,97 +1,55 @@
-/* Wiki-only styles; shared header/footer stay in southpark.css */
-.wiki{background:#f8f8f8;color:#172233;min-height:75vh;font-family:"Inter",Arial,sans-serif;padding:48px 0 90px}
-.wiki *{box-sizing:border-box}
-.wiki-shell{width:min(1250px,calc(100% - 48px));margin:auto}
-.wiki-breadcrumb{display:flex;gap:10px;flex-wrap:wrap;font-size:.77rem;color:#6b7786;margin-bottom:40px}
-.wiki-breadcrumb a,.wiki-article a{color:#2563a8;text-decoration:none}
-.wiki-heading{border-bottom:1px solid #d4dbe2;margin-bottom:34px}
-.wiki-kicker{font:750 .7rem "Google Sans Flex",sans-serif;text-transform:uppercase;letter-spacing:.12em;color:#2563a8;margin:0 0 10px}
-.wiki-dot{color:#98a3ae;margin:0 5px}
-.wiki-heading h1{font:780 clamp(2.8rem,5.5vw,5rem)/1.03 "Google Sans Flex",sans-serif;letter-spacing:-.045em;text-transform:uppercase;margin:0}
-.wiki-dek{font-size:1.04rem;color:#647080;margin:14px 0 28px;line-height:1.5}
-.wiki-tabs{display:flex;align-items:center;gap:26px;overflow-x:auto;white-space:nowrap}
-.wiki-tabs a,.wiki-tabs button{border:0;border-bottom:3px solid transparent;background:transparent;color:#647080;font:700 .82rem "Google Sans Flex",sans-serif;text-decoration:none;padding:13px 0;cursor:pointer}
-.wiki-tabs a:hover,.wiki-tabs button:hover{color:#2563a8}
-.wiki-tabs a.is-current{border-color:#2563a8;color:#172233}
-.wiki-tabs .wiki-share{margin-left:auto;display:flex;align-items:center;gap:7px}
-.wiki-layout{display:grid;grid-template-columns:170px minmax(0,1fr) 300px;gap:32px;align-items:start}
-.wiki-contents{position:sticky;top:88px;display:flex;flex-direction:column;gap:0;border-left:2px solid #d9dfe5}
-.wiki-side-title{font:800 .7rem "Google Sans Flex",sans-serif;text-transform:uppercase;letter-spacing:.09em;padding:0 0 12px 15px}
-.wiki-contents a{font-size:.8rem;color:#536273;text-decoration:none;padding:9px 15px;line-height:1.3}
-.wiki-contents a:hover,.wiki-contents a.active{color:#2563a8;border-left:2px solid #2563a8;margin-left:-2px}
-.wiki-article{min-width:0}
-.wiki-section{scroll-margin-top:100px;margin:0 0 38px}
-.wiki-article p,.wiki-article li{font-size:.98rem;line-height:1.82;margin:0 0 18px}
-.wiki-article .wiki-lead{font-size:1.12rem;line-height:1.75}
-.wiki-section h2{font:760 1.7rem/1.2 "Google Sans Flex",sans-serif;letter-spacing:-.03em;margin:0 0 18px;padding-bottom:11px;border-bottom:1px solid #d4dbe2}
-.wiki-article ul{padding-left:22px}
-.wiki-endnote{border-top:1px solid #d4dbe2;padding-top:20px;color:#798492;font-size:.78rem!important}
-.wiki-infobox{border:1px solid #bfcddd;background:#fff}
-.wiki-info-title{background:#e2edf8;text-align:center;padding:16px 12px;display:flex;flex-direction:column;gap:4px}
-.wiki-info-title strong{font:800 1.25rem "Google Sans Flex",sans-serif}
-.wiki-info-title span{font-size:.72rem;color:#52667d}
-.wiki-info-image{padding:12px 12px 0}
-.wiki-image-placeholder{min-height:195px;background:linear-gradient(145deg,#e3e9f0,#cdd8e5);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:#61768d;text-align:center}
-.wiki-image-placeholder span{font:800 .78rem "Google Sans Flex",sans-serif;letter-spacing:.07em}
-.wiki-image-placeholder small{font-size:.68rem;max-width:190px;line-height:1.5}
-.wiki-infobox dl{padding:8px 14px 12px;margin:0}
-.wiki-infobox dl div{display:grid;grid-template-columns:100px minmax(0,1fr);gap:10px;border-bottom:1px solid #e4e8ed;padding:12px 0;font-size:.76rem;line-height:1.45}
-.wiki-infobox dl div:last-child{border-bottom:0}
-.wiki-infobox dt{font-weight:750}
-.wiki-infobox dd{margin:0}
-@media(max-width:1080px){.wiki-layout{grid-template-columns:minmax(0,1fr) 270px}.wiki-contents{display:none}}
-@media(max-width:720px){.wiki{padding-top:30px}.wiki-shell{width:calc(100% - 32px)}.wiki-breadcrumb{margin-bottom:25px}.wiki-layout{display:flex;flex-direction:column}.wiki-article{order:1}.wiki-infobox{order:2;width:100%}.wiki-tabs{gap:20px}.wiki-heading h1{font-size:clamp(2.5rem,10vw,3.5rem)}.wiki-section{margin-bottom:28px}.wiki-info-image .wiki-image-placeholder{min-height:170px}}
 
-/* Episode wiki enhancements */
-.wiki-share-status{font-size:.76rem;color:#2563a8;margin:5px 0 9px;min-height:1em}
-.wiki-copy-fallback{display:block;width:min(100%,480px);margin-top:7px;padding:9px;border:1px solid #9eafc3;background:#fff;color:#172233}
-.wiki-info-link{display:block;border-top:1px solid #e4e8ed;padding:13px 14px;color:#2563a8;font-size:.79rem;font-weight:700;text-decoration:none}
-.wiki-info-link:hover{text-decoration:underline}
-.wiki-info-title strong{line-height:1.3}
-
-/* Refined episode reference presentation */
-.wiki{padding-top:38px}
-.wiki-heading h1{max-width:1000px;text-wrap:balance}
-.wiki-layout{gap:clamp(22px,2.6vw,36px)}
-.wiki-infobox{border:1px solid #ccd6e2;box-shadow:0 3px 15px rgba(20,41,70,.045);overflow:hidden}
-.wiki-info-title{background:#dfeaf7;border-bottom:1px solid #c5d5e7;padding:19px 14px}
-.wiki-info-title strong{font-size:1.18rem}
-.wiki-info-title span{letter-spacing:.04em;text-transform:uppercase;font-weight:650}
-.wiki-info-image{padding:14px 14px 0}
-.wiki-image-placeholder{aspect-ratio:16/9;min-height:0;background:linear-gradient(145deg,#e9eef5,#cbd9e8)}
-.wiki-infobox dl{padding:6px 14px 10px}
-.wiki-infobox dl div{grid-template-columns:95px minmax(0,1fr);font-size:.78rem;padding:12px 0}
-.wiki-infobox dt{color:#31465d}
-.wiki-info-link{display:flex;align-items:center;justify-content:space-between;background:#f4f8fc;padding:15px}
-.wiki-contents{background:transparent}
-.wiki-section h2{scroll-margin-top:100px}
-.wiki-article .wiki-lead{font-size:1.09rem}
-.wiki-share{min-width:88px;justify-content:center}
+/* Standalone Wiki styling. All selectors are scoped to .wiki. */
+.wiki{background:#f7f9fc;color:#10233f;min-height:80vh;font-family:"Google Sans Flex",Arial,sans-serif;padding:28px 0 100px}
+.wiki,.wiki *{box-sizing:border-box}
+.wiki-shell{width:min(1536px,calc(100% - 48px));margin:auto}
+.wiki-page-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:32px;align-items:start}
+.wiki-contents{position:sticky;top:85px;display:flex;flex-direction:column;padding:14px 8px 20px;background:#f0f4f9;border-radius:9px}
+.wiki-side-title{font-size:.8rem;font-weight:800;color:#596f8d;padding:2px 12px 13px}
+.wiki-contents a{font-size:.94rem;color:#193252;text-decoration:none;padding:12px 15px;border-left:4px solid transparent;border-radius:0 7px 7px 0;line-height:1.3}
+.wiki-contents a:hover{color:#0874d7;background:#e8f0f9}
+.wiki-contents a.active{border-left-color:#137cde;color:#086bc4;background:#e1ecf8;font-weight:750}
+.wiki-main-area{min-width:0}
+.wiki-breadcrumb{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:#4b6483;font-size:.85rem;margin:0 0 14px}
+.wiki-breadcrumb a{color:#3e5c7e;text-decoration:none}.wiki-breadcrumb strong{color:#122541}
+.wiki-heading{margin-bottom:23px}
+.wiki-heading h1{font:800 clamp(2.2rem,3.6vw,3.6rem)/1.07 "Google Sans Flex",sans-serif;letter-spacing:-.045em;margin:0 0 15px;color:#0c203d;text-transform:none}
+.wiki-meta-row{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:16px}
+.wiki-dek{font-size:.82rem;font-weight:800;letter-spacing:.02em;color:#617893;margin:0}
+.wiki-dek span{padding:0 11px;color:#bdc8d5}
+.wiki-share{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#eaf0f7;border:1px solid #cad8e7;border-radius:9px;color:#0c2342;font:750 .92rem "Google Sans Flex",sans-serif;cursor:pointer;white-space:nowrap}
+.wiki-share:hover{background:#dbe8f6}
+.wiki-share-status{font-size:.8rem;color:#1865b1;margin:0}
 .wiki-share-status:empty{display:none}
-.wiki-share-status:not(:empty){margin:8px 0;color:#2563a8}
-.wiki-fact-strip{display:flex;gap:0;flex-wrap:wrap;margin:0 0 24px;border:1px solid #d7e0e9;background:#fff}
-.wiki-fact-strip div{flex:1 1 125px;padding:13px 16px;border-right:1px solid #e1e7ed}
-.wiki-fact-strip div:last-child{border-right:0}
-.wiki-fact-strip span{display:block;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;font-weight:750;color:#68788a;margin-bottom:5px}
-.wiki-fact-strip strong{display:block;font:750 .92rem "Google Sans Flex",sans-serif;color:#172233}
-@media(max-width:1080px){.wiki-layout{grid-template-columns:minmax(0,1fr) 280px}}
-@media(max-width:720px){.wiki-layout{display:flex;flex-direction:column}.wiki-article{order:1;width:100%}.wiki-infobox{order:2;width:100%}.wiki-fact-strip div{flex-basis:33%}.wiki-tabs{gap:18px}.wiki-heading h1{font-size:clamp(2.4rem,9vw,3.5rem)}}
-@media(max-width:420px){.wiki-fact-strip div{flex-basis:50%}.wiki-tabs{gap:15px}.wiki-tabs a,.wiki-tabs button{font-size:.76rem}}
-
-/* Episode-guide-inspired styling: scoped to Wiki only. */
-.wiki .wiki-heading h1{font-family:"Google Sans Flex",sans-serif;font-weight:720;letter-spacing:-.055em;text-wrap:balance}
-.wiki .wiki-episode-labels{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}
-.wiki .wiki-episode-labels span{padding:9px 12px;border:1px solid #d6e0eb;border-radius:11px;background:#fff;color:#52657a;font:700 .67rem "Google Sans Flex",sans-serif;letter-spacing:.07em}
-.wiki .wiki-infobox{border:1px solid #cbd7e5;border-radius:16px;overflow:hidden;box-shadow:0 10px 28px rgba(23,34,51,.045)}
-.wiki .wiki-info-title{background:#172233;color:#fff;padding:19px 16px}
-.wiki .wiki-info-title strong{font:750 1.28rem "Google Sans Flex",sans-serif;letter-spacing:-.03em}
-.wiki .wiki-info-title span{color:#b7c8d9}
-.wiki .wiki-info-image{padding:0}
-.wiki .wiki-image-placeholder{aspect-ratio:16/9;min-height:0;background:linear-gradient(140deg,#344c69,#142135);color:#e4edf6}
-.wiki .wiki-image-placeholder small{color:#b9cadd}
-.wiki .wiki-infobox dl{padding:12px 17px}
-.wiki .wiki-infobox dt{font:750 .69rem "Google Sans Flex",sans-serif;letter-spacing:.035em;text-transform:uppercase;color:#63758a}
-.wiki .wiki-infobox dd{font-size:.82rem;color:#172233}
-.wiki .wiki-info-link{display:flex;align-items:center;justify-content:space-between;gap:10px;font:750 .78rem "Google Sans Flex",sans-serif}
-.wiki .wiki-tabs a,.wiki .wiki-tabs button{font-family:"Google Sans Flex",sans-serif}
-@media(max-width:720px){.wiki .wiki-episode-labels{gap:7px}.wiki .wiki-episode-labels span{padding:8px 10px}}
+.wiki-tabs{display:flex;align-items:stretch;gap:12px;overflow-x:auto;background:#edf2f8;border:1px solid #d5e0ec;border-radius:9px;padding:0 10px;scrollbar-width:thin}
+.wiki-tabs a{display:block;padding:15px 18px;text-decoration:none;color:#4e6582;font-size:.92rem;font-weight:750;border-bottom:3px solid transparent;white-space:nowrap}
+.wiki-tabs a:hover{color:#096ac1}
+.wiki-tabs a.is-current{background:#1679d5;color:white;border-radius:8px;border-bottom-color:#1679d5}
+.wiki-content-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,390px);gap:34px;align-items:start}
+.wiki-article{min-width:0}
+.wiki-section{scroll-margin-top:100px;margin:0 0 26px}
+.wiki-section h2{font:800 1.85rem/1.2 "Google Sans Flex",sans-serif;letter-spacing:-.035em;margin:0 0 12px;color:#0e2442}
+.wiki-section:not(:first-child){border-top:1px solid #d5dfea;padding-top:23px}
+.wiki-article p,.wiki-article li{font-size:1rem;line-height:1.64;color:#233955;margin:0 0 16px}
+.wiki-article ul{padding-left:23px}
+.wiki-endnote{font-size:.78rem!important;color:#718198!important;border-top:1px solid #d7e1eb;padding-top:18px}
+.wiki-right-rail{min-width:0}
+.wiki-infobox{border:1px solid #cfdce9;border-radius:9px;overflow:hidden;background:#f7f9fc}
+.wiki-info-title{font:800 1.22rem "Google Sans Flex",sans-serif;background:#19395e;color:white;padding:16px 20px;margin:0}
+.wiki-info-image{width:100%}
+.wiki-image-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(140deg,#b9cce0,#e0eaf4);color:#395b7b;text-align:center;padding:16px}
+.wiki-image-placeholder span{font-weight:850;letter-spacing:.1em;font-size:.82rem}
+.wiki-image-placeholder small{font-size:.75rem;max-width:240px}
+.wiki-infobox dl{margin:0}
+.wiki-infobox dl>div{display:grid;grid-template-columns:47% minmax(0,1fr);gap:8px;padding:11px 17px;border-bottom:1px solid #dbe4ed;align-items:start}
+.wiki-infobox dl>div:last-child{border-bottom:0}
+.wiki-infobox dt{font-size:.71rem;color:#4f6683;font-weight:850}
+.wiki-infobox dd{margin:0;font-size:.82rem;color:#162c49}
+.wiki-episode-nav{display:grid;grid-template-columns:1fr 1fr;margin-top:20px;border:1px solid #d1ddea;border-radius:9px;padding:16px;background:#f7f9fc}
+.wiki-episode-nav>div{display:flex;flex-direction:column;gap:5px}
+.wiki-episode-nav .wiki-next{border-left:1px solid #d6e1ed;text-align:right;padding-left:10px}
+.wiki-episode-nav span{font-size:.87rem;font-weight:800}
+.wiki-episode-nav small{font-size:.83rem;color:#1673c8}
+@media(max-width:1180px){.wiki-page-grid{grid-template-columns:175px minmax(0,1fr);gap:24px}.wiki-content-grid{grid-template-columns:minmax(0,1fr) 300px;gap:23px}}
+@media(max-width:950px){.wiki-page-grid{display:block}.wiki-contents{display:none}.wiki-content-grid{grid-template-columns:minmax(0,1fr) 290px;gap:22px}}
+@media(max-width:720px){.wiki{padding-top:22px}.wiki-shell{width:calc(100% - 30px)}.wiki-heading h1{font-size:clamp(2.15rem,8vw,3.1rem)}.wiki-content-grid{display:flex;flex-direction:column}.wiki-right-rail{width:100%}.wiki-dek{line-height:1.7}.wiki-dek span{padding:0 4px}.wiki-tabs{gap:0}.wiki-tabs a{padding:13px}.wiki-section h2{font-size:1.55rem}.wiki-share{padding:9px 11px}.wiki-meta-row{align-items:flex-start}}
