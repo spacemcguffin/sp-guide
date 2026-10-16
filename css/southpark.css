@@ -780,8 +780,8 @@ footer{
   margin-top:36px;
 }
 .news-page{
-  width:36px;
-  height:36px;
+  width:38px;
+  height:38px;
   padding:0;
   border:1px solid rgba(23,34,51,.20);
   border-radius:999px;
@@ -789,7 +789,7 @@ footer{
   place-items:center;
   background:#fff;
   color:var(--ink);
-  font:650 .75rem/1 "Google Sans Flex",sans-serif;
+  font:650 .85rem/1 "Google Sans Flex",sans-serif;
   cursor:pointer;
   transition:transform .18s ease,background .18s ease,color .18s ease,border-color .18s ease;
 }
