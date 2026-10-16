@@ -29,14 +29,14 @@
     });
     if (totalPages <= 1) return;
     function add(label, target, disabled, current = false) {
-      const b = node('button', null, label); b.type = 'button'; b.disabled = disabled;
-      if (current) b.setAttribute('aria-current', 'page');
+      const b = node('button', 'news-page', label); b.type = 'button'; b.disabled = disabled; if (label === '‹') b.setAttribute('aria-label', 'Previous page'); if (label === '›') b.setAttribute('aria-label', 'Next page');
+      if (current) { b.classList.add('is-active'); b.setAttribute('aria-current', 'page'); }
       b.addEventListener('click', () => { page = target; render(); document.getElementById('news').scrollIntoView({behavior:'auto'}); }); pages.append(b);
     }
-    add('Previous', page - 1, page === 1);
+    add('‹', page - 1, page === 1);
     const start = Math.max(1, Math.min(page - 2, totalPages - 4));
     for (let n = start; n <= Math.min(totalPages, start + 4); n++) add(String(n), n, false, n === page);
-    add('Next', page + 1, page === totalPages);
+    add('›', page + 1, page === totalPages);
   }
   search.addEventListener('input', () => { clear.hidden = search.value.length === 0; page = 1; render(); });
   clear.addEventListener('click', () => { search.value = ''; page = 1; render(); search.focus(); });
