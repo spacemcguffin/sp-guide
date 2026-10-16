@@ -1,3 +1,25 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10131d"><title>News Archive | South Park Guide</title><meta name="description" content="Browse the complete South Park Guide news archive, with searchable stories, updates and announcements."><link rel="canonical" href="https://southpark.guide/news/"><link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/southpark.css"><link rel="stylesheet" href="/css/news-archive.css"><script src="/js/site.js" defer></script><script src="/js/news-archive.js" defer></script></head>
-<body id="top"><div id="site-header"></div><main class="archive-shell"><div class="archive-intro"><p class="archive-eyebrow">SOUTH PARK GUIDE</p><h1>News Archive</h1><p>Every story, announcement and update, all in one place.</p></div><div class="archive-toolbar"><label class="archive-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="archiveSearch" type="search" placeholder="Search news..." aria-label="Search news articles" autocomplete="off"></label><select id="archiveSort" aria-label="Sort articles"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="az">Title A–Z</option></select></div><div class="archive-status" id="archiveStatus" role="status" aria-live="polite">Loading articles…</div><div class="archive-grid" id="archiveGrid"></div><nav class="archive-pages" id="archivePages" aria-label="Archive pagination"></nav></main><div id="site-footer"></div></body></html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11141d">
+<title>News Archive | South Park Guide</title>
+<meta name="description" content="Browse all South Park news and announcements.">
+<link rel="canonical" href="https://southpark.guide/news/">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/southpark.css">
+<link rel="stylesheet" href="/css/news-archive.css">
+<script src="/js/site.js" defer></script>
+<script src="/js/news-archive.js" defer></script>
+</head><body id="top" class="news-archive-page">
+<div id="site-header"></div>
+<main><section class="section" id="news" aria-labelledby="newsArchiveHeading">
+<div class="section-title-row"><h2 id="newsArchiveHeading">News Archive</h2></div>
+<div class="archive-toolbar">
+<label class="archive-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="archiveSearch" type="search" placeholder="Search news" aria-label="Search news articles" autocomplete="off"></label>
+<label class="archive-sort-wrap"><span>Sort by</span><select id="archiveSort" aria-label="Sort news articles"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="az">Title A–Z</option></select></label>
+</div>
+<p class="archive-status" id="archiveStatus" role="status" aria-live="polite">Loading articles…</p>
+<div class="news-grid" id="archiveGrid"></div>
+<nav class="news-pagination archive-pages" id="archivePages" aria-label="News pagination"></nav>
+</section></main><div id="site-footer"></div>
+</body></html>
