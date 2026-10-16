@@ -1,6 +1,7 @@
 /* Archive-only additions. All article cards, section heading, header and footer
    are styled by /css/southpark.css, exactly as on the homepage. */
 
+body.news-archive-page main { padding-top: 54px; }
 body.news-archive-page #news { min-height: calc(100vh - 144px); }
 
 /* Search, sort and pagination are unique to this page. */
@@ -38,18 +39,14 @@ body.news-archive-page #news { min-height: calc(100vh - 144px); }
 .news-archive-page .archive-search:focus-within,
 .news-archive-page .archive-sort-wrap:focus-within { outline: 2px solid #4572a1; outline-offset: 2px; }
 .news-archive-page .archive-status { margin: 0 0 20px; color: #657182; font-size: .8rem; }
-.news-archive-page .archive-pages {
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 8px; margin-top: 34px;
+/* Pagination uses the homepage's .news-pagination and .news-page rules.
+   Only layout adjustments specific to the archive belong here. */
+.news-archive-page .archive-pages { flex-wrap: wrap; }
+.news-archive-page .archive-pages .news-page:disabled {
+  opacity: .4;
+  cursor: default;
+  transform: none;
 }
-.news-archive-page .archive-pages button {
-  padding: 9px 13px; border: 1px solid #d8dde3;
-  background: #fff; color: #172233; cursor: pointer;
-}
-.news-archive-page .archive-pages button[aria-current="page"] {
-  background: #172233; border-color: #172233; color: #fff; font-weight: 750;
-}
-.news-archive-page .archive-pages button:disabled { opacity: .4; cursor: default; }
 .news-archive-page .archive-empty {
   grid-column: 1 / -1; padding: 40px 12px;
   text-align: center; color: #657182;
