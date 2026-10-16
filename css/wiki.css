@@ -41,3 +41,10 @@
 .ency-infobox dd{margin:0}
 @media(max-width:1080px){.ency-layout{grid-template-columns:minmax(0,1fr) 270px}.ency-contents{display:none}}
 @media(max-width:720px){.wiki{padding-top:30px}.wiki-shell{width:calc(100% - 32px)}.ency-breadcrumb{margin-bottom:25px}.ency-layout{display:flex;flex-direction:column}.ency-article{order:1}.ency-infobox{order:2;width:100%}.ency-tabs{gap:20px}.ency-heading h1{font-size:clamp(2.5rem,10vw,3.5rem)}.ency-section{margin-bottom:28px}.ency-info-image .ency-image-placeholder{min-height:170px}}
+
+/* Episode wiki enhancements */
+.wiki-share-status{font-size:.76rem;color:#2563a8;margin:5px 0 9px;min-height:1em}
+.wiki-copy-fallback{display:block;width:min(100%,480px);margin-top:7px;padding:9px;border:1px solid #9eafc3;background:#fff;color:#172233}
+.wiki-info-link{display:block;border-top:1px solid #e4e8ed;padding:13px 14px;color:#2563a8;font-size:.79rem;font-weight:700;text-decoration:none}
+.wiki-info-link:hover{text-decoration:underline}
+.wiki-info-title strong{line-height:1.3}
