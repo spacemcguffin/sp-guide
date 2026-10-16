@@ -651,3 +651,33 @@ body.gallery-open{
   }
 
 }
+
+/* Article date and copy-link control */
+.article-date-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:0 0 14px;
+}
+.article-date-row .article-date{margin:0;}
+.article-share{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  border:0;
+  background:transparent;
+  padding:4px;
+  color:rgba(23,34,51,.58);
+  font:700 .72rem "Inter",Arial,sans-serif;
+  cursor:pointer;
+  border-radius:5px;
+  transition:color .15s ease,background .15s ease;
+}
+.article-share:hover,.article-share:focus-visible{
+  color:var(--ink);
+  background:rgba(23,34,51,.07);
+}
+.article-share:focus-visible{outline:2px solid currentColor;outline-offset:2px;}
+.article-share svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.article-share-label:empty{display:none;}
