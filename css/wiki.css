@@ -28,9 +28,9 @@
 .wiki-content-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,390px);gap:34px;align-items:start}
 .wiki-article{min-width:0}
 .wiki-section{scroll-margin-top:100px;margin:0 0 26px}
-.wiki-section h2{font:800 1.85rem/1.2 "Google Sans Flex",sans-serif;letter-spacing:-.035em;margin:0 0 12px;color:#0e2442}
+.wiki-section h2{font:650 1.8rem/1.2 "Google Sans Flex",sans-serif;letter-spacing:-.03em;margin:0 0 12px;color:#0e2442}
 .wiki-section:not(:first-child){border-top:1px solid #d5dfea;padding-top:23px}
-.wiki-article p,.wiki-article li{font-size:1rem;line-height:1.64;color:#233955;margin:0 0 16px}
+.wiki-article p,.wiki-article li{font-size:0.98rem;line-height:1.64;color:#233955;margin:0 0 16px}
 .wiki-article ul{padding-left:23px}
 .wiki-endnote{font-size:.78rem!important;color:#718198!important;border-top:1px solid #d7e1eb;padding-top:18px}
 .wiki-right-rail{min-width:0}
